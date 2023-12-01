@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "Sku": "1",
+      "Name": "Chicken",
+      "DisplayName": "Lolli Pop",
+      "SellingPrice": "130",
+      "BasePrice": 100,
+      "Description": "Quality Good",
+      "id": 1
+    },
+    {
+      "Sku": "2",
+      "Name": "Mutton",
+      "DisplayName": "Fry",
+      "SellingPrice": "200",
+      "BasePrice": 170,
+      "Description": "",
+      "id": 2
+    }
+  ],
+  "Users": [
+    {
+      "Name": "Pavan ",
+      "LastName": "Kanadala",
+      "Email": "pavan@gmail.com",
+      "DOB": "2023-10-03T18:30:00.000Z",
+      "Gender": "Male",
+      "Education": "Intermidate",
+      "Company": "Wipro",
+      "PhoneNumber": [
+        "6535434558"
+      ],
+      "id": 1
+    },
+    {
+      "Name": "Venkatesh",
+      "LastName": "Daggupati",
+      "Email": "venkatesh@gmail.com",
+      "DOB": "2023-10-31T18:30:00.000Z",
+      "Gender": "Male",
+      "Education": "Intermidate",
+      "Company": "LogiSoft",
+      "PhoneNumber": [
+        6457655656,
+        6457655656,
+        9465667456
+      ],
+      "id": 2
+    }
+  ],
+  "login": []
+}

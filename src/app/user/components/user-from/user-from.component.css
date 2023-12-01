@@ -1,0 +1,32 @@
+.error{
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+}
+.dialog_container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.row{
+    display: flex;
+    gap: 10px;
+    mat-form-field{
+        width: 100%;
+    }
+}
+.content{
+    padding-top: 10px;
+    width:500px;
+}
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-top: 4px;
+        gap: 5px;
+      }

@@ -1,0 +1,17 @@
+{
+    
+        "GLOBAL":{
+            "ERROR":"Data Not found"
+        },
+        "ITEMS":{
+            "ERROR":"Data not found"
+        },
+        "CHANGEPASSWORD":{
+            "ERROR":"Bad Request"
+        },
+        "LOGIN":{
+             "Error":"Login Data Not Found"
+        }
+        
+    
+}

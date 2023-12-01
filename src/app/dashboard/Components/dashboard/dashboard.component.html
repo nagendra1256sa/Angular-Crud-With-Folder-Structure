@@ -1,0 +1,45 @@
+<mat-toolbar color="primary" class="mat-toolbar">
+    <span>Crud Operations</span>
+    <span class="example-spacer"></span>
+  
+       <mat-icon class="mat-18" mat-icon-button  [matMenuTriggerFor]="menu">account_circle</mat-icon>
+    
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="changePassword()">
+        <span>Change Password</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon color="primary">logout</mat-icon>
+        <span>Log Out</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened class="sideNav">
+      <button mat-button class="menu-button"  (click)="openItems()">
+         <mat-icon class="mat-18">menu</mat-icon> <a>Menu Items</a>
+      </button> 
+      <button mat-button class="menu-button" (click)="openUsers()">
+        <mat-icon class="mat-18">group</mat-icon> <a>Users</a>
+      </button>
+      <!-- <mat-list role="list">
+        <mat-list-item role="listitem">
+          <button mat-button class="menu-button" (click)="openItems()">
+            Menu Items
+         </button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <button mat-button class="menu-button" (click)="openUsers()">
+            users
+          </button>
+        </mat-list-item>
+      </mat-list> -->
+    </mat-drawer>
+    <mat-drawer-content>
+     
+      <router-outlet></router-outlet>
+  
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
+  

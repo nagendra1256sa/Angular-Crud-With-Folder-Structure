@@ -1,0 +1,37 @@
+
+.mat-card {
+    width: 400px;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+
+  .mat-input-element {
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  .loginwrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+a:hover {
+  text-decoration: underline; 
+}
+a {
+  text-decoration: none; 
+  color: #007bff; 
+  cursor: pointer;
+}
