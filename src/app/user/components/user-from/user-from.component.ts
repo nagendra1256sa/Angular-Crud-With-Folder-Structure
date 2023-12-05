@@ -39,7 +39,7 @@ export class UserFromComponent implements OnInit {
        this.userForm=this._fb.group({
          Name: new FormControl('',[Validators.required,this.noSpaceValidator(),this.noNumbersValidator(),this.noSpecialChValidator()]),
          LastName: new FormControl('',[Validators.required,this.noSpaceValidator(),this.noNumbersValidator(),this.noSpecialChValidator()]),
-         Email: new FormControl('',[Validators.required,Validators.email,Validators.pattern(/^[a-zA-Z]/)]),
+         Email: new FormControl('',[Validators.required,Validators.email,Validators.pattern(/^[a-z]/)]),
          DOB: new FormControl('',[Validators.required]),
          Gender: new FormControl('',[Validators.required]),
          Education: new FormControl('',[Validators.required]),
@@ -52,7 +52,6 @@ export class UserFromComponent implements OnInit {
   {
     return (control:AbstractControl):ValidationErrors|null=>
     {
-      // const required=this.empForm?.get('Sku')?.errors?.['required'] as boolean;
       const hasSpace=/^\s/.test(control.value)
       return hasSpace ? {'noSpaces':true}:null
     }

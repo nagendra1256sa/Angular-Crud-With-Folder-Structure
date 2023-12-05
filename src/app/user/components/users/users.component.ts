@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit{
     this._router.events.pipe(filter(event=> event instanceof NavigationEnd)).subscribe(()=>{
       if(this._Aroute.snapshot.routeConfig?.path==='users')
       {
-         this.getUserData()
+         this.getUserData();
       }
     })
   }
