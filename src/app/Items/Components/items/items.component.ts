@@ -24,7 +24,7 @@ export class ItemsComponent implements OnInit{
   constructor(private _matDialog:MatDialog, private _ItemService:Service, private _ItemRouter:Router,private _ItemActivateRouter:ActivatedRoute,public translate:TranslateService)
   {
     this.translate.addLangs(['en','te'])
-    this.translate.setDefaultLang('he')
+    this.translate.setDefaultLang('en')
     this.filterLanguages=this.translate.getLangs().filter(lang => lang !=='he')
 
    }

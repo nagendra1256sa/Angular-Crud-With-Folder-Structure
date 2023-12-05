@@ -44,7 +44,7 @@
            <input matInput placeholder="abc&gmail.com" formControlName="Email">
            <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['required']">Email required</mat-error>
            <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['email']">Invalid email</mat-error>
-           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['pattern'] && !userForm.controls['Email'].errors?.['email']">Email doesn't start with special character and number </mat-error>
+           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['pattern'] && !userForm.controls['Email'].errors?.['email']">Email doesn't start with special character,capital letter and number </mat-error>
          </mat-form-field>
         </div>
         <div>

@@ -39,7 +39,7 @@ export class UserFromComponent implements OnInit {
        this.userForm=this._fb.group({
          Name: new FormControl('',[Validators.required,this.noSpaceValidator(),this.noNumbersValidator(),this.noSpecialChValidator()]),
          LastName: new FormControl('',[Validators.required,this.noSpaceValidator(),this.noNumbersValidator(),this.noSpecialChValidator()]),
-         Email: new FormControl('',[Validators.required,Validators.email,Validators.pattern(/^[a-z]/)]),
+         Email: new FormControl('',[Validators.required,Validators.email,Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-z.-]+.[a-zA-Z]{3}$/)]),
          DOB: new FormControl('',[Validators.required]),
          Gender: new FormControl('',[Validators.required]),
          Education: new FormControl('',[Validators.required]),
