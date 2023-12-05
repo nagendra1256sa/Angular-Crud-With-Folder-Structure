@@ -16,7 +16,7 @@ interface getUserDataTypeCheck{
 })
 export class UserService {
   constructor(private _http:HttpClient,private _userAdapter:userAdapters,private translate:TranslateService) { 
-    this.translate.addLangs(['he'])
+    //  this.translate.addLangs(['he'])
   }
   addUsers(data:addUsers):Observable<addUsers>
   {

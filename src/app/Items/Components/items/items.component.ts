@@ -22,8 +22,12 @@ export class ItemsComponent implements OnInit{
 
   constructor(private _matDialog:MatDialog, private _ItemService:Service, private _ItemRouter:Router,private _ItemActivateRouter:ActivatedRoute,public translate:TranslateService)
   {
-    this.translate.addLangs(['en'])
-    this.translate.setDefaultLang('en')
+    this.translate.addLangs(['en','te'])
+    this.translate.setDefaultLang('he')
+   }
+   switchLang(Lang:string)
+   {
+     this.translate.use(Lang);
    }
   ngOnInit(): void {
     this.getItemList();

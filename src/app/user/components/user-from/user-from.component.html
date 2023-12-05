@@ -9,6 +9,15 @@
              <mat-label>Name</mat-label>
              <input matInput placeholder="Enter name" formControlName="Name">
              <mat-error *ngIf="userForm.controls['Name'].touched && userForm.controls['Name'].errors?.['required']">Name required</mat-error>
+             <mat-error *ngIf=" userForm.controls['Name'].errors?.['noSpaces'] && userForm.controls['Name'].touched">
+              Front white Spaces are not allowed
+            </mat-error>
+            <mat-error  class="error-message" *ngIf=" userForm.controls['Name'].errors?.['noNumbers'] && ! userForm.controls['Name'].errors?.['noSpaces']">
+              Numbers are not allowed
+            </mat-error>
+            <mat-error  class="error-message" *ngIf=" userForm.controls['Name'].errors?.['noSpecial'] && !userForm.controls['Name'].errors?.['noSpaces'] && !userForm.controls['Name'].errors?.['noNumbers']">
+              Special characters are not allowed
+            </mat-error>
          </mat-form-field>
         </div>
         <div>
@@ -16,6 +25,15 @@
              <mat-label>LastName</mat-label>
              <input matInput  placeholder="Enter name" formControlName="LastName">
              <mat-error *ngIf="userForm.controls['LastName'].touched && userForm.controls['LastName'].errors?.['required']">Last name required</mat-error>
+             <mat-error *ngIf=" userForm.controls['LastName'].errors?.['noSpaces']">
+              Front white Spaces are not allowed
+            </mat-error>
+            <mat-error  class="error-message" *ngIf=" userForm.controls['LastName'].errors?.['noNumbers'] && !userForm.controls['LastName'].errors?.['noSpaces'] ">
+              Numbers are not allowed
+            </mat-error>
+            <mat-error  class="error-message" *ngIf=" userForm.controls['LastName'].errors?.['noSpecial'] && !userForm.controls['LastName'].errors?.['noSpaces'] && !userForm.controls['LastName'].errors?.['noNumbers'] ">
+              Special characters are not allowed
+            </mat-error>
          </mat-form-field>
         </div>
    </div>
@@ -25,17 +43,22 @@
            <mat-label>Email</mat-label>
            <input matInput placeholder="abc&gmail.com" formControlName="Email">
            <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['required']">Email required</mat-error>
+           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['email']">Invalid email</mat-error>
+           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['pattern'] && !userForm.controls['Email'].errors?.['email']">Email doesn't start with special character and number </mat-error>
          </mat-form-field>
         </div>
         <div>
-          <mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>Dob</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="DOB" >
+            <input matInput [matDatepicker]="picker" formControlName="DOB" [matDatepickerFilter]="dateFilter">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="userForm.get('DOB')?.touched && userForm.controls['DOB']?.hasError('required')">
               Dob is required
+            </mat-error>
+            <mat-error *ngIf="userForm.get('DOB')?.touched && userForm.controls['DOB']?.hasError('pattern')">
+              Dob format invalid
             </mat-error>
           </mat-form-field>
          </div>
@@ -64,9 +87,7 @@
               <mat-option *ngFor="let study of Education" [value]="study.value">
                 {{study.viewValue}}
               </mat-option>
-              <mat-error *ngIf="userForm.controls['Education'].touched && userForm.controls['Education'].errors?.['required']">
-                Education required
-              </mat-error>
+             
             </mat-select>
           </mat-form-field>
         </div>
@@ -75,21 +96,29 @@
             <mat-label>Comapny</mat-label>
             <input matInput placeholder="LogiSoft" formControlName="Company">
             <mat-error *ngIf="userForm.controls['Company'].touched && userForm.controls['Company'].errors?.['required']">Company required</mat-error>
+            <mat-error *ngIf="userForm.controls['Company'].touched && userForm.controls['Company'].errors?.['noSpaces']">
+              Inavlid input front space is not allowed
+            </mat-error>
           </mat-form-field>
         </div>
    </div>
    <div class="row" *ngFor="let number of PhoneControls.controls;let i=index">
     <div formArrayName="PhoneNumber">
       <mat-form-field appearance="outline">
-        <mat-label>Phone number</mat-label>
-        <input matInput type="number" placeholder="67658848754" [formControlName]="i">
-        <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].errors?.['required']">phone number is required</mat-error>
-        <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].errors?.['pattern']">Starting zero is not allowed and phone number should be 10 numbers</mat-error>
+        <mat-label>Phone number {{i+1}}</mat-label>
+        <input matInput type="" placeholder="67658848754" [formControlName]="i" maxlength="10">
+        <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].hasError('required')">
+          Phone number is {{i+1}} required
+        </mat-error>
+        <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].hasError('pattern')">Phone number must be 10 and not starting with 0 and space
+        </mat-error>
       </mat-form-field>
+      <div>
+      </div>
     </div>
     <button mat-raised-button type="button" color="warn" (click)="deleteField(i)" [disabled]="disableButton()"><mat-icon class="mat-18" disabled="">delete</mat-icon></button>
    </div>
-   <button mat-raised-button color="warn" type="button" (click)="addNumber()">Add number</button>
+   <div class="row"><button mat-raised-button color="warn" type="button" (click)="addNumber()">Add number</button></div>
    <div mat-dialog-actions class="actions">
      <button mat-raised-button routerLink="/dashboard/users">cancel</button>
      <button mat-raised-button color="primary" type="submit" [disabled]="data ? !checkDirty():!userForm.valid">{{data ? 'Update': 'Submit'}}</button>

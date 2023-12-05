@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Service } from '../../dataProviders/service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ export interface EditDetailsType{
 @Component({
   selector: 'app-edit-add',
   templateUrl: './edit-add.component.html',
-  styleUrls: ['./edit-add.component.css']
+  styleUrls: ['./edit-add.component.scss']
 })
 export class EditAddComponent implements OnInit {
   data: EditDetailsType|undefined;
@@ -28,13 +28,37 @@ export class EditAddComponent implements OnInit {
   // @Inject(MAT_DIALOG_DATA) public data:any
   {
     this.empForm = this._fb.group({
-      Sku: new FormControl('', [Validators.required,Validators.pattern(/^[a-zA-Z1-9][a-zA-Z0-9\s!@#$%^&*()-_+=\[\]{};:'",.<>\/?]*$/)]),
-      Name: new FormControl('', [Validators.required]),
-      DisplayName: new FormControl('', [Validators.required,]),
-      SellingPrice: new FormControl('', [Validators.required,Validators.pattern(/^[1-9][0-9]*$/)]),
-      BasePrice: new FormControl('', [Validators.required,Validators.pattern(/^[1-9][0-9]*$/)]),
+      Sku: new FormControl('', [Validators.required,this.noSpaceValidator()]),
+      Name: new FormControl('', [Validators.required,this.noSpaceValidator(),this.noNumbersValidator(),this.noSpecialChValidator()]),
+      DisplayName: new FormControl('', [Validators.required,this.noSpaceValidator()]),
+      SellingPrice: new FormControl('', [Validators.required,Validators.max(1000),Validators.min(100)]),
+      BasePrice: new FormControl('', [Validators.required,Validators.max(1000),Validators.min(100)]),
       Description: new FormControl('', []),
     });
+  }
+  noSpaceValidator()
+  {
+    return (control:AbstractControl):ValidationErrors|null=>
+    {
+      // const required=this.empForm?.get('Sku')?.errors?.['required'] as boolean;
+      const hasSpace=/^\s/.test(control.value)
+      return hasSpace ? {'noSpaces':true}:null
+    }
+  }
+  noNumbersValidator()
+  {
+    return (control:AbstractControl):ValidationErrors|null=>{
+      const hasNumbers=/\d/.test(control.value)
+      return hasNumbers? {'noNumbers':true}:null
+    }
+  }
+  noSpecialChValidator()
+  {
+    return (control:AbstractControl):ValidationErrors|null=>
+    {
+      const hasSpecialCh=/[^\w\s]/.test(control.value);
+      return hasSpecialCh ? {'noSpecial':true}:null
+    }
   }
   ngOnInit(): void {
     const ItemId = this._ActiveRoute.snapshot.paramMap.get('id');

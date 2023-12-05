@@ -1,0 +1,19 @@
+{
+     "items":{
+          "Sku":"Sku",
+          "Name":"Name",
+          "SellingPrice":"SellingPrice",
+          "action":"action"
+     },
+     "users":{
+          "Name":"Name",
+          "LastName": "LastName",
+          "DOB": "DOB",
+          "PhoneNumber": "PhoneNumber",
+          "id": "id",
+          "action":"action",
+          "edit":"edit",
+          "delete":"delete"
+     }
+               
+}

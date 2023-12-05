@@ -1,0 +1,61 @@
+.error{
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+}
+.dialog_container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.row{
+    display: flex;
+    gap: 10px;
+   
+}
+.content{
+    padding-top: 10px;
+    width:500px;
+}
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 4px;
+    gap: 5px;
+} 
+// mat-form-field.ng-invalid.ng-touched {
+//     animation: example;
+//     animation-duration: 0.2s;
+//     margin-bottom: 15px;
+//   }
+  
+//   @keyframes example {
+//     from {margin-bottom: 0;}
+//     to {margin-bottom: 20px;}
+//   }
+mat-form-field.ng-invalid.ng-touched {
+    animation: bigger;
+    animation-duration: 0.3s;
+    margin-bottom: 17px;
+  }
+  
+  @keyframes bigger {
+    from {margin-bottom: 0;}
+    to {margin-bottom: 17px;}
+  }
+  
+  mat-form-field.ng-valid.ng-touched {
+    animation: smaller;
+    animation-duration: 0.3s;
+    margin-bottom: 0px;
+  }
+  
+  @keyframes smaller {
+    from {margin-bottom: 17px;}
+    to {margin-bottom: 0;}
+  }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../dataProviders/service.service';
 
@@ -22,7 +22,7 @@ export interface UserEditDetailsType{
 @Component({
   selector: 'app-user-from',
   templateUrl: './user-from.component.html',
-  styleUrls: ['./user-from.component.css']
+  styleUrls: ['./user-from.component.scss']
 })
 export class UserFromComponent implements OnInit {
   userForm!:FormGroup
@@ -37,15 +37,40 @@ export class UserFromComponent implements OnInit {
   constructor(private _fb:FormBuilder,private _NRouter:Router,private _userService:UserService,private ActiveRoute:ActivatedRoute)
   {
        this.userForm=this._fb.group({
-         Name: new FormControl('',[Validators.required]),
-         LastName: new FormControl('',[Validators.required]),
-         Email: new FormControl('',[Validators.required]),
+         Name: new FormControl('',[Validators.required,this.noSpaceValidator(),this.noNumbersValidator(),this.noSpecialChValidator()]),
+         LastName: new FormControl('',[Validators.required,this.noSpaceValidator(),this.noNumbersValidator(),this.noSpecialChValidator()]),
+         Email: new FormControl('',[Validators.required,Validators.email,Validators.pattern(/^[a-zA-Z]/)]),
          DOB: new FormControl('',[Validators.required]),
          Gender: new FormControl('',[Validators.required]),
          Education: new FormControl('',[Validators.required]),
-         Company:new FormControl('',[Validators.required]),
-         PhoneNumber: new FormArray([new FormControl('',[Validators.required,Validators.pattern(/^[1-9]\d{9}$/)])]),
+         Company:new FormControl('',[Validators.required,this.noSpecialChValidator(),this.noSpaceValidator()]),
+         PhoneNumber: new FormArray([new FormControl('',[Validators.required,
+          Validators.pattern(/^[1-9]\d{9}$/)])]),
        })
+  }
+  noSpaceValidator()
+  {
+    return (control:AbstractControl):ValidationErrors|null=>
+    {
+      // const required=this.empForm?.get('Sku')?.errors?.['required'] as boolean;
+      const hasSpace=/^\s/.test(control.value)
+      return hasSpace ? {'noSpaces':true}:null
+    }
+  }
+  noNumbersValidator()
+  {
+    return (control:AbstractControl):ValidationErrors|null=>{
+      const hasNumbers=/\d/.test(control.value)
+      return hasNumbers? {'noNumbers':true}:null
+    }
+  }
+  noSpecialChValidator()
+  {
+    return (control:AbstractControl):ValidationErrors|null=>
+    {
+      const hasSpecialCh=/[^\w\s]/.test(control.value);
+      return hasSpecialCh ? {'noSpecial':true}:null
+    }
   }
   ngOnInit(): void {
     const UId=this.ActiveRoute.snapshot.paramMap.get('id');
@@ -134,6 +159,10 @@ export class UserFromComponent implements OnInit {
   checkDirty()
   {
      return this.data && this.userForm.dirty
+  }
+  dateFilter(d: Date |null)
+  {
+    return d !== null && d.getFullYear()>= 2001 && d<=new Date();
   }
 
 }

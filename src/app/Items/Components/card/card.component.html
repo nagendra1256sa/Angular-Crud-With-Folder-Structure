@@ -1,14 +1,31 @@
 <div class="container">
-    <h2>Employee Details</h2>
-    <div class="content">
-        <div> <span class="data">Sku</span>:{{data?.Sku}}</div>
-        <div><span class="data">Name</span>:{{data?.Name}}</div>
-        <div><span class="data">DisplayName</span>:{{data?.DisplayName}}</div>
-       <div> <span class="data">SellingPrice</span>:{{data?.SellingPrice}}</div>
-       <div> <span class="data">BasePrice</span>:{{data?.BasePrice}}</div>
-       <div> <span class="data">description</span>:{{data?.Description   }}</div>
+  <h2>Employee Details</h2>
+  <div class="content">
+    <div class="details-item">
+      <span class="data">Sku</span>: {{ data?.Sku }}
     </div>
-    <button mat-raised-button color="primary" (click)="call()">
-        Back
-      </button>
+    <div class="details-item">
+      <span class="data">Name</span>: {{ data?.Name }}
+    </div>
+    <div class="details-item">
+      <span class="data">DisplayName</span>: {{ data?.DisplayName }}
+    </div>
+    <div class="details-item">
+      <span class="data">SellingPrice</span>: {{ data?.SellingPrice }}
+    </div>
+    <div class="details-item">
+      <span class="data">BasePrice</span>: {{ data?.BasePrice }}
+    </div>
+    <div class="details-item">
+      <span class="data">description</span>: {{ data?.Description }}
+    </div>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="call()"
+    style="float: right"
+  >
+    Back
+  </button>
 </div>

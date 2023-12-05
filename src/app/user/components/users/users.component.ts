@@ -18,9 +18,13 @@ export class UsersComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!:MatSort
   displayedColumns:string[]=['id','Name','LastName','DOB','PhoneNumber','Actions']
-  constructor(private _router:Router,private _userService:UserService,private _Aroute:ActivatedRoute,private transalte:TranslateService){
-    transalte.setDefaultLang('he');
-    transalte.use('he')
+  constructor(private _router:Router,private _userService:UserService,private _Aroute:ActivatedRoute,public translate:TranslateService){
+    this.translate.addLangs(['en','te'])
+    this.translate.setDefaultLang('en')
+  }
+  switchLang(lang:string)
+  {
+      this.translate.use(lang)
   }
   ngOnInit(): void {
     this.getUserData();

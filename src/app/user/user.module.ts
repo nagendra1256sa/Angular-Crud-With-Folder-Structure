@@ -18,6 +18,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import { UserCardComponent } from './components/user-card/user-card.component';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     UsersComponent,
@@ -40,7 +41,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    TranslateModule
   ]
 })
 export class UserModule { }
