@@ -1,12 +1,10 @@
 <div class="mainBody" *ngIf="!ItemsError">
-   <section>
+   <section style="display: flex;">
+    <h2>Language Change :</h2>
     <select class="translate" #SelectedLang (click)="switchLang(SelectedLang.value)">
-      
-        <option *ngFor="let language of translate.getLangs()" [value]="language" [selected]="language === translate.currentLang">
-          <div *ngIf="language !=='he'"> {{language}}</div>
-         
+        <option *ngFor="let language of filterLanguages" [value]="language" [selected]="language === translate.currentLang">
+           {{language}}
           </option>
-      
     </select>
    </section>
     <mat-form-field>

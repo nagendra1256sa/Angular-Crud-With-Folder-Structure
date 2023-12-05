@@ -17,6 +17,7 @@ export class ItemsComponent implements OnInit{
   displayedColumns: string[] = ['Sku', 'Name','SellingPrice','action'];
   dataSource!: MatTableDataSource<any>;
   public ItemsError?:string
+  public filterLanguages!:string[]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -24,6 +25,8 @@ export class ItemsComponent implements OnInit{
   {
     this.translate.addLangs(['en','te'])
     this.translate.setDefaultLang('he')
+    this.filterLanguages=this.translate.getLangs().filter(lang => lang !=='he')
+
    }
    switchLang(Lang:string)
    {
