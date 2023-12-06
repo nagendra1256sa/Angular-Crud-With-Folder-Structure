@@ -37,14 +37,14 @@ export class LoginService {
   //    })
   //    )
   // }
-  // postLoginDetails(data:any)
-  // {
-  //   return this._http.post('http://localhost:4000/user',data,{
-  //     headers:{
-  //       'contentType':"application/json"
-  //     }
-  //   })
-  // }
+  postLoginDetails(data:any)
+  {
+    return this._http.post('http://localhost:4000/user',data,{
+      headers:{
+        'contentType':"application/json"
+      }
+    })
+  }
   getLoginDetailsByName(data:any):Observable<GetLoginDataTypeCheck>
   {
     

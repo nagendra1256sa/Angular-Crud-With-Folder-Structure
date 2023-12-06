@@ -1,0 +1,16 @@
+.signUpContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.mat_card{
+    padding: 20px;
+    width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+}
+mat-form-field{
+    width: 100%;
+    margin-bottom: 15px;
+}

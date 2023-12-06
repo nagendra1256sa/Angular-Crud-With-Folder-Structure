@@ -1,0 +1,25 @@
+<form [formGroup]="signUpForm"  class="signUpContainer">
+   <mat-card class="mat_card">
+      <h1>SignUp</h1>
+      <div>
+        <mat-form-field appearance="outline">
+            <mat-label>UserName</mat-label>
+            <input type="text" matInput formControlName="userName">
+            <mat-error *ngIf="signUpForm.get('userName')?.touched&&signUpForm.get('userName')?.hasError('required')">{{"LOGIN.USERNAME_REQUIRED"| translate}}</mat-error>
+            <mat-error *ngIf="signUpForm.controls['userName'].touched && signUpForm.controls['userName'].errors?.['pattern']">{{'LOGIN.WHITE_SPACE_VALIDATION'|translate}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Password
+            </mat-label>
+            <input type="text" matInput formControlName="password" maxlength="8">
+            <mat-error *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['required']">{{"LOGIN.PASSWORD_REQUIRED"|translate}}</mat-error>
+            <mat-error *ngIf="signUpForm.controls['password'].touched && signUpForm.controls['password'].errors?.['pattern']">{{'LOGIN.PASSWORD_VALIDATION'|translate}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" (click)="signUp()" [disabled]="signUpForm.invalid">SignUp</button>
+   </mat-card>
+
+</form>
