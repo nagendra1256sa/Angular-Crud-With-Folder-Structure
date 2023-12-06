@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
      constructor(private _fb:FormBuilder,private _router:Router,private _loginService:LoginService,public translate:TranslateService)
      {
        this.loginFormGroup=this._fb.group({
-         userName: new FormControl('',[Validators.required]),
+         userName: new FormControl('',[Validators.required,Validators.pattern(/^!\s/)]),
          password: new FormControl('',[Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/)])
        })
      }

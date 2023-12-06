@@ -8,6 +8,7 @@
               </mat-label>
               <input matInput placeholder="Enter UserName"  formControlName="userName">
               <mat-error *ngIf="loginFormGroup.controls['userName'].touched && loginFormGroup.controls['userName'].errors?.['required']">{{'LOGIN.USERNAME_REQUIRED'|translate}}</mat-error>
+              <mat-error *ngIf="loginFormGroup.controls['userName'].touched && loginFormGroup.controls['userName'].errors?.['pattern']">{{'LOGIN.WHITE_SPACE_VALIDATION'|translate}}</mat-error>
             </mat-form-field>
           </div>
           <div>

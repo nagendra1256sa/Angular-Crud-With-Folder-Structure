@@ -2,7 +2,7 @@
      "USER":{
           "404ERROR":"Data Not found",
           "NAME_REQUIRED":" Name is required",
-          "WHITE_SPACE_VALIDATION":" Front white Spaces are not allowed",
+          "WHITE_SPACE_VALIDATION":"Don't start with white space",
           "NUMBERS_VALIDATION":" Numbers are not allowed",
           "SPECIAL_CH_VALIDATION":" Special characters are not allowed",
           "EMIAL_REQUIRED":"Email required",
@@ -29,7 +29,7 @@
           "DISPLAY_NAME_REQUIRED":" DisplayName is required",
           "SELLING_PRICE_REQUIRED":"SellingPrice is required",
           "BASE_PRICE_REQUIRED":"   BasePrice is required",
-          "WHITE_SPACE_VALIDATION":" Front white Spaces are not allowed",
+          "WHITE_SPACE_VALIDATION":"Don't start with white space",
           "NUMBERS_VALIDATION":" Numbers are not allowed",
           "SPECIAL_CH_VALIDATION":" Special characters are not allowed",
           "INVALID_PRICE":" Inavalid Price",
@@ -48,7 +48,8 @@
            "404Error":"Login Data Not Found",
            "USERNAME_REQUIRED":"User name is required",
            "PASSWORD_REQUIRED":"Password required",
-           "PASSWORD_VALIDATION":"Password must be alphaNumaric and special characters"
+           "PASSWORD_VALIDATION":"Password must be alphaNumaric and special characters and its must be 8 characters",
+           "WHITE_SPACE_VALIDATION":"Don't start with white space"
       }
 
                
