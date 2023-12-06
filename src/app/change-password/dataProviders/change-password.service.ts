@@ -10,8 +10,8 @@ export class ChangePasswordService {
 
   constructor(private _httpPassword:HttpClient) { }
 
-  putLoginDeatils(name:string,data:LoginDataTypeCheck):Observable<any>
+  putLoginDeatils(name:string,data:LoginDataTypeCheck):Observable<LoginDataTypeCheck>
   {
-    return this._httpPassword.put(`http://localhost:4000/User/${name}/password`,data)
+    return this._httpPassword.put<LoginDataTypeCheck>(`http://localhost:4000/User/${name}/password`,data)
   }
 }

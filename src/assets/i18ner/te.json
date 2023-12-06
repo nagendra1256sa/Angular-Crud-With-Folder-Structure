@@ -1,19 +1,23 @@
 {
-    "items":{
-        "Sku":"యెస్కేయు",
-        "Name":"పేరు",
-        "SellingPrice":"విక్రయ ధర",
-        "action":"చర్యలు"
+    "ITEMS":{
+        "COLUMNS_LANGUAGE":{
+            "Sku":"యెస్కేయు",
+            "Name":"పేరు",
+            "SellingPrice":"విక్రయ ధర",
+            "action":"చర్యలు"
+        }
     },
-    "users":{
-        "Name":"పేరు",
-        "LastName": " చివరి పేరు",
-        "DOB": "పుట్టిన తేది",
-        "PhoneNumber": "ఫోను నంబరు",
-        "id": "గుర్తింపు సంఖ్య",
-        "action":"చర్యలు",
-        "edit":"సవరించు",
-        "delete":"తొలగించు"
+    "USER":{
+        "COLUMNS_LANGUAGE":{
+            "Name":"పేరు",
+            "LastName": " చివరి పేరు",
+            "DOB": "పుట్టిన తేది",
+            "PhoneNumber": "ఫోను నంబరు",
+            "id": "గుర్తింపు సంఖ్య",
+            "action":"చర్యలు",
+            "edit":"సవరించు",
+            "delete":"తొలగించు"
+        }
     }
               
 }

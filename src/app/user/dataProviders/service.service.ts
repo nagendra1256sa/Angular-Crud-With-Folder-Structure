@@ -1,8 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpResponse, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
-import { UserEditDetailsType } from '../components/user-from/user-from.component';
-import { addUsers, userAdapters, userModal } from '../models/adpters';
+import { UserEditDetailsType, addUsers, userAdapters, userModal } from '../models/adpters';
 import { TranslateService } from '@ngx-translate/core';
 
 interface getUserDataTypeCheck{
@@ -56,16 +55,16 @@ export class UserService {
     }),
     catchError((error:HttpErrorResponse)=>{
        return of({success: true,
-        message:this.translate.instant('GLOBAL.ERROR')
+        message:this.translate.instant('USER.404ERROR')
       })
     }));
   }
-  deleteUser(id:number):Observable<any>
+  deleteUser(id:number):Observable<addUsers>
   {
     return this._http.delete(` http://localhost:5000/Users/${id}`)
   }
-  getUserListById(id:number):Observable<any>
+  getUserListById(id:number):Observable<UserEditDetailsType>
   {
-    return this._http.get(`http://localhost:5000/Users/${id}`);
+    return this._http.get<UserEditDetailsType>(`http://localhost:5000/Users/${id}`);
   }
 }

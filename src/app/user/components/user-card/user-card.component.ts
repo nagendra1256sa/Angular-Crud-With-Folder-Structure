@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../dataProviders/service.service';
+import { addUsers } from '../../models/adpters';
 
 @Component({
   selector: 'app-user-card',
@@ -8,9 +9,9 @@ import { UserService } from '../../dataProviders/service.service';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent implements OnInit {
-  data:any 
+  public data!: addUsers;
 
-  routeSubscription: any;
+  // routeSubscription: any;
     constructor(private _Activated:ActivatedRoute,private getDataById:UserService,private _NRouter:Router){}
   ngOnInit(): void {
     // this.routeSubscription = this._Activated.paramMap.subscribe(params => {

@@ -13,7 +13,7 @@ import { LoginDataTypeCheck } from '../../models/typeCheck';
 export class ChangePasswordComponent implements OnInit{
   public loginData!:LoginDataTypeCheck;
   public error!:boolean;
- public message:boolean = true;
+//  public message:boolean = true;
   public changePasswordForm!:FormGroup
   constructor(private _userService:ChangePasswordService,private _matDialog: MatDialog,private _matDialogRef:MatDialogRef<ChangePasswordComponent>)
   {}

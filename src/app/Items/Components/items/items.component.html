@@ -21,23 +21,23 @@
       <table mat-table [dataSource]="dataSource" matSort>
         <!-- ID Column -->
         <ng-container matColumnDef="Sku">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'items.Sku' | translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ITEMS.COLUMNS_LANGUAGE.Sku' | translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.Sku }}</td>
         </ng-container>
   
         <!-- Progress Column -->
         <ng-container matColumnDef="Name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'items.Name' | translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ITEMS.COLUMNS_LANGUAGE.Name' | translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.Name }}</td>
         </ng-container>
   
         <ng-container matColumnDef="SellingPrice">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'items.SellingPrice'| translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ITEMS.COLUMNS_LANGUAGE.SellingPrice'| translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.SellingPrice }}</td>
         </ng-container>
   
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'items.action'|translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ITEMS.COLUMNS_LANGUAGE.action'|translate}}</th>
           <td mat-cell *matCellDef="let row">
             <button
               mat-icon-button

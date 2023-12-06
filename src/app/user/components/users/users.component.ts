@@ -20,8 +20,6 @@ export class UsersComponent implements OnInit{
   @ViewChild(MatSort) sort!:MatSort
   displayedColumns:string[]=['id','Name','LastName','DOB','PhoneNumber','Actions']
   constructor(private _router:Router,private _userService:UserService,private _Aroute:ActivatedRoute,public translate:TranslateService){
-    this.translate.addLangs(['en','te'])
-    this.translate.setDefaultLang('en')
     this.filterLang=this.translate.getLangs().filter(lang => lang !== 'he')
   }
   switchLang(lang:string)

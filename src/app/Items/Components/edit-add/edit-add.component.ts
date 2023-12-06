@@ -19,8 +19,8 @@ export interface EditDetailsType{
   styleUrls: ['./edit-add.component.scss']
 })
 export class EditAddComponent implements OnInit {
-  data: EditDetailsType|undefined;
-  empForm: FormGroup;
+ public data!: EditDetailsType;
+  public empForm: FormGroup;
   constructor(
     private _fb: FormBuilder,
     private _employeSerbice: Service,
@@ -89,7 +89,7 @@ export class EditAddComponent implements OnInit {
         this._employeSerbice
           .UpdateItem(this.empForm.value, this.data.id)
           .subscribe({
-            next: (val: any) => {
+            next: () => {
               // this._dialogRef.close(true);
               this._NRouter.navigate(['/dashboard/items'])
             },

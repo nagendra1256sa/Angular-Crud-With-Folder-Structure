@@ -7,7 +7,21 @@ export class userModal{
    DOB?:string;
    PhoneNumber?:string[];
 }
-
+export interface EducationType {
+   value: string;
+   viewValue: string;
+ }
+ export interface UserEditDetailsType{
+   id:number;
+   Name:string;
+   LastName:string;
+   Email:String;
+   DOB:string;
+   Gender:string;
+   Education:string;
+   Company:string;
+   PhoneNumber:string[];
+ }
 export class addUsers
 {
     Name?:string;

@@ -15,7 +15,9 @@ export class typeChek {
 })
 export class Service {
 
-  constructor(private _http:HttpClient,private _items:batchAdapter,private translate:TranslateService) { }
+  constructor(private _http:HttpClient,private _items:batchAdapter,private translate:TranslateService) {
+    // this.translate.addLangs(['he'])
+   }
   //Items
   addItem(data:AddItems):Observable<AddItems>
   {
@@ -54,12 +56,12 @@ export class Service {
         }
       }),
       catchError((error: HttpErrorResponse) => {
-        return of({ success: false,message:this.translate.instant('ITEMS.ERROR') });
+        return of({ success: false,message:this.translate.instant('ITEMS.404ERROR') });
       })
     );
 
   }
-  deleteItem(id:number):Observable<any>
+  deleteItem(id:number):Observable<AddItems>
   {
     return this._http.delete(` http://localhost:5000/items/${id}`)
   }

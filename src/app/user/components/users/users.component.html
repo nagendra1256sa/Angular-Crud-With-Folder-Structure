@@ -19,28 +19,28 @@
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'users.id'| translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'USER.COLUMNS_LANGUAGE.id'| translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.id }}</td>
         </ng-container>
         <ng-container matColumnDef="Name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'users.Name'|translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'USER.COLUMNS_LANGUAGE.Name'|translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.Name}}</td>
         </ng-container>
         <ng-container matColumnDef="LastName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'users.LastName'| translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'USER.COLUMNS_LANGUAGE.LastName'| translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.LastName}}</td>
         </ng-container>
         <ng-container matColumnDef="DOB">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'users.DOB'| translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'USER.COLUMNS_LANGUAGE.DOB'| translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.DOB|date:'mediumDate'}}</td>
         </ng-container>
         <ng-container matColumnDef="PhoneNumber">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'users.PhoneNumber'|translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'USER.COLUMNS_LANGUAGE.PhoneNumber'|translate}}</th>
           <td mat-cell *matCellDef="let row">{{ row.PhoneNumber[0] }}</td>
         </ng-container>
   
         <ng-container matColumnDef="Actions">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'users.action' |translate}}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'USER.COLUMNS_LANGUAGE.action' |translate}}</th>
           <td mat-cell *matCellDef="let row">
             <!-- <button
             mat-icon-button
@@ -58,11 +58,11 @@
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="editFormOpen(row.id) ; $event.stopPropagation()">
               <mat-icon color="primary">edit</mat-icon>
-              <span>{{"users.edit" |translate}}</span>
+              <span>{{"USER.COLUMNS_LANGUAGE.edit" |translate}}</span>
             </button>
             <button mat-menu-item (click)="deleteUser(row.id);$event.stopPropagation()">
               <mat-icon color="warn">delete</mat-icon>
-              <span>{{'users.delete'|translate}}</span>
+              <span>{{'USER.COLUMNS_LANGUAGE.delete'|translate}}</span>
             </button>
           </mat-menu>
           </td>

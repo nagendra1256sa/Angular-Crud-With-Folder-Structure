@@ -23,8 +23,6 @@ export class ItemsComponent implements OnInit{
 
   constructor(private _matDialog:MatDialog, private _ItemService:Service, private _ItemRouter:Router,private _ItemActivateRouter:ActivatedRoute,public translate:TranslateService)
   {
-    this.translate.addLangs(['en','te'])
-    this.translate.setDefaultLang('en')
     this.filterLanguages=this.translate.getLangs().filter(lang => lang !=='he')
 
    }
@@ -56,13 +54,17 @@ export class ItemsComponent implements OnInit{
               this.ItemsError=res.message
          }
         
+       },
+       error:(err)=>{
+         console.log(err);
+         
        }
     })
   }
   deleteItemDetails(id:number)
   {
     this._ItemService.deleteItem(id).subscribe({
-      next:(val)=>
+      next:()=>
       {
          alert("Emp details is deleted");
          this.getItemList();

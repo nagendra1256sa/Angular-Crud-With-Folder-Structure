@@ -2,22 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../dataProviders/service.service';
+import { EducationType, UserEditDetailsType } from '../../models/adpters';
 
-interface EducationType {
-  value: string;
-  viewValue: string;
-}
-export interface UserEditDetailsType{
-  id:number;
-  Name:string;
-  LastName:string;
-  Email:String;
-  DOB:string;
-  Gender:string;
-  Education:string;
-  Company:string;
-  PhoneNumber:string[];
-}
 
 @Component({
   selector: 'app-user-from',
@@ -25,9 +11,9 @@ export interface UserEditDetailsType{
   styleUrls: ['./user-from.component.scss']
 })
 export class UserFromComponent implements OnInit {
-  userForm!:FormGroup
-  data:UserEditDetailsType|undefined
-  Education : EducationType[]=[
+  public userForm!:FormGroup
+  public data!:UserEditDetailsType
+  public Education : EducationType[]=[
     {value:'Diploma', viewValue:'Diploma'},
     {value:'Intermidate', viewValue:'Intermidate'},
     {value:'PG', viewValue:'PG'},

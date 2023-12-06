@@ -1,19 +1,55 @@
 {
-     "items":{
-          "Sku":"Sku",
-          "Name":"Name",
-          "SellingPrice":"SellingPrice",
-          "action":"action"
-     },
-     "users":{
-          "Name":"Name",
-          "LastName": "LastName",
-          "DOB": "DOB",
-          "PhoneNumber": "PhoneNumber",
-          "id": "id",
-          "action":"action",
-          "edit":"edit",
-          "delete":"delete"
-     }
+     "USER":{
+          "404ERROR":"Data Not found",
+          "NAME_REQUIRED":" Name is required",
+          "WHITE_SPACE_VALIDATION":" Front white Spaces are not allowed",
+          "NUMBERS_VALIDATION":" Numbers are not allowed",
+          "SPECIAL_CH_VALIDATION":" Special characters are not allowed",
+          "EMIAL_REQUIRED":"Email required",
+          "INVALID_EMAIL":"Invalid email ",
+          "EMAIL_VALIDATION":"Email doesn't start with special character,capital letter and number",
+          "DOB_REQUIRED":"Dob is required",
+          "PHONE_NUMBER_REQUIRED":"Phone number is  required",
+          "PHONE_NUMBER_VALIDATION":"Phone number must be 10 and not starting with 0 and space",
+          "COLUMNS_LANGUAGE":{
+               "Name":"Name",
+               "LastName": "LastName",
+               "DOB": "DOB",
+               "PhoneNumber": "PhoneNumber",
+               "id": "id",
+               "action":"action",
+               "edit":"edit",
+               "delete":"delete"
+          }
+      },
+      "ITEMS":{
+          "404ERROR":"Data not found",
+          "SKU_REQUIRED":"Sku is required",
+          "NAME_REQUIRED":" Name is required",
+          "DISPLAY_NAME_REQUIRED":" DisplayName is required",
+          "SELLING_PRICE_REQUIRED":"SellingPrice is required",
+          "BASE_PRICE_REQUIRED":"   BasePrice is required",
+          "WHITE_SPACE_VALIDATION":" Front white Spaces are not allowed",
+          "NUMBERS_VALIDATION":" Numbers are not allowed",
+          "SPECIAL_CH_VALIDATION":" Special characters are not allowed",
+          "INVALID_PRICE":" Inavalid Price",
+          "PRICE_VALIDATION":"Min price start with 100 rupees",
+          "COLUMNS_LANGUAGE":{
+               "Sku":"Sku",
+               "Name":"Name",
+               "SellingPrice":"SellingPrice",
+               "action":"action"
+          }
+      },
+      "CHANGEPASSWORD":{
+          "ERROR":"Bad Request"
+      },
+      "LOGIN":{
+           "404Error":"Login Data Not Found",
+           "USERNAME_REQUIRED":"User name is required",
+           "PASSWORD_REQUIRED":"Password required",
+           "PASSWORD_VALIDATION":"Password must be alphaNumaric and special characters"
+      }
+
                
 }

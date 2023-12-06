@@ -8,15 +8,15 @@
          <mat-form-field appearance="outline">
              <mat-label>Name</mat-label>
              <input matInput placeholder="Enter name" formControlName="Name">
-             <mat-error *ngIf="userForm.controls['Name'].touched && userForm.controls['Name'].errors?.['required']">Name required</mat-error>
+             <mat-error *ngIf="userForm.controls['Name'].touched && userForm.controls['Name'].errors?.['required']">{{"USER.NAME_REQUIRED"|translate}}</mat-error>
              <mat-error *ngIf=" userForm.controls['Name'].errors?.['noSpaces'] && userForm.controls['Name'].touched">
-              Front white Spaces are not allowed
+              {{"USER.WHITE_SPACE_VALIDATION"|translate}}
             </mat-error>
             <mat-error  class="error-message" *ngIf=" userForm.controls['Name'].errors?.['noNumbers'] && ! userForm.controls['Name'].errors?.['noSpaces']">
-              Numbers are not allowed
+              {{'USER.NUMBERS_VALIDATION'| translate}}
             </mat-error>
             <mat-error  class="error-message" *ngIf=" userForm.controls['Name'].errors?.['noSpecial'] && !userForm.controls['Name'].errors?.['noSpaces'] && !userForm.controls['Name'].errors?.['noNumbers']">
-              Special characters are not allowed
+              {{"USER.SPECIAL_CH_VALIDATION"| translate}}
             </mat-error>
          </mat-form-field>
         </div>
@@ -26,13 +26,13 @@
              <input matInput  placeholder="Enter name" formControlName="LastName">
              <mat-error *ngIf="userForm.controls['LastName'].touched && userForm.controls['LastName'].errors?.['required']">Last name required</mat-error>
              <mat-error *ngIf=" userForm.controls['LastName'].errors?.['noSpaces']">
-              Front white Spaces are not allowed
+              {{"USER.WHITE_SPACE_VALIDATION"|translate}}
             </mat-error>
             <mat-error  class="error-message" *ngIf=" userForm.controls['LastName'].errors?.['noNumbers'] && !userForm.controls['LastName'].errors?.['noSpaces'] ">
-              Numbers are not allowed
+              {{'USER.NUMBERS_VALIDATION'| translate}}
             </mat-error>
             <mat-error  class="error-message" *ngIf=" userForm.controls['LastName'].errors?.['noSpecial'] && !userForm.controls['LastName'].errors?.['noSpaces'] && !userForm.controls['LastName'].errors?.['noNumbers'] ">
-              Special characters are not allowed
+              {{"USER.SPECIAL_CH_VALIDATION"| translate}}
             </mat-error>
          </mat-form-field>
         </div>
@@ -42,9 +42,9 @@
          <mat-form-field appearance="outline">
            <mat-label>Email</mat-label>
            <input matInput placeholder="abc&gmail.com" formControlName="Email">
-           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['required']">Email required</mat-error>
-           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['email']">Invalid email</mat-error>
-           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['pattern'] && !userForm.controls['Email'].errors?.['email']">Email doesn't start with special character,capital letter and number </mat-error>
+           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['required']">{{"USER.EMIAL_REQUIRED"|translate}}</mat-error>
+           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['email']">{{"USER.INVALID_EMAIL"|translate}}</mat-error>
+           <mat-error *ngIf="userForm.controls['Email'].touched && userForm.controls['Email'].errors?.['pattern'] && !userForm.controls['Email'].errors?.['email']">{{"USER.EMAIL_VALIDATION"|translate}}</mat-error>
          </mat-form-field>
         </div>
         <div>
@@ -55,10 +55,7 @@
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="userForm.get('DOB')?.touched && userForm.controls['DOB']?.hasError('required')">
-              Dob is required
-            </mat-error>
-            <mat-error *ngIf="userForm.get('DOB')?.touched && userForm.controls['DOB']?.hasError('pattern')">
-              Dob format invalid
+              {{"USER.DOB_REQUIRED"|translate}}
             </mat-error>
           </mat-form-field>
          </div>
@@ -97,7 +94,7 @@
             <input matInput placeholder="LogiSoft" formControlName="Company">
             <mat-error *ngIf="userForm.controls['Company'].touched && userForm.controls['Company'].errors?.['required']">Company required</mat-error>
             <mat-error *ngIf="userForm.controls['Company'].touched && userForm.controls['Company'].errors?.['noSpaces']">
-              Inavlid input front space is not allowed
+              {{"USER.WHITE_SPACE_VALIDATION"|translate}}
             </mat-error>
           </mat-form-field>
         </div>
@@ -108,9 +105,10 @@
         <mat-label>Phone number {{i+1}}</mat-label>
         <input matInput type="" placeholder="67658848754" [formControlName]="i" maxlength="10">
         <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].hasError('required')">
-          Phone number is {{i+1}} required
+          
+          {{"USER.PHONE_NUMBER_REQUIRED"|translate}}
         </mat-error>
-        <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].hasError('pattern')">Phone number must be 10 and not starting with 0 and space
+        <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].hasError('pattern')">{{"USER.PHONE_NUMBER_VALIDATION"|translate}}
         </mat-error>
       </mat-form-field>
       <div>

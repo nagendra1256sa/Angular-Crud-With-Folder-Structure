@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpResponse, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
-import { GetLoginDataTypeCheck } from '../Models/typeCheck';
+import { GetLoginDataTypeCheck, LoginDataTypeCheck } from '../Models/typeCheck';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -9,7 +9,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LoginService {
   constructor(private _http:HttpClient,private translate:TranslateService) { 
-    this.translate.addLangs(['he'])
   }
   // getLoginDetails():Observable<GetLoginDataTypeCheck>
   // {
@@ -46,13 +45,32 @@ export class LoginService {
   //     }
   //   })
   // }
-  getLoginDetailsByName(data:any)
+  getLoginDetailsByName(data:any):Observable<GetLoginDataTypeCheck>
   {
     
-    return this._http.post('http://localhost:4000/user/name',data)
+    return this._http.post('http://localhost:4000/user/name',data,{observe :'response'}).pipe(map((response:HttpResponse<any>)=>{
+       const status =response?.status
+       if(status === HttpStatusCode?.Created)
+       {
+          const body=response?.body
+          return {
+            success : true,
+            responseData:body
+          }
+       }
+       else
+       {
+         return {success :false,responseData:[]} 
+       }
+       
+    }),
+    catchError((error:HttpErrorResponse)=>
+    {
+      return of({success:false,message:this.translate.instant('LOGIN.Error')})
+    }))
   }
-  putDeatils(name:string,data:any):Observable<any>
+  putDeatils(name:string,data:any):Observable<LoginDataTypeCheck>
   {
-    return this._http.put(`http://localhost:4000/user/${name}/password`,data)
+    return this._http.put<LoginDataTypeCheck>(`http://localhost:4000/user/${name}/password`,data)
   }
 }

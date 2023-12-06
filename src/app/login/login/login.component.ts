@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../dataProviders/login.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  LoginData:any
-  loginCheck:boolean=false;
+ public LoginError!:boolean;
+  // public loginCheck:boolean=false;
      loginFormGroup!:FormGroup
-     constructor(private _fb:FormBuilder,private _router:Router,private _loginService:LoginService)
+     constructor(private _fb:FormBuilder,private _router:Router,private _loginService:LoginService,public translate:TranslateService)
      {
        this.loginFormGroup=this._fb.group({
          userName: new FormControl('',[Validators.required]),
@@ -38,15 +39,15 @@ export class LoginComponent implements OnInit {
   //      }
   //    })
   // }
-  passwordChecking():boolean
-  {
-     const username=this.loginFormGroup.value.userName;
-     const password=this.loginFormGroup.value.password;
-     return this.LoginData?.some((user:any)=>
-     {
-        return user.user_name===username && user.password===password
-     })
-  }
+  // passwordChecking():boolean
+  // {
+  //    const username=this.loginFormGroup.value.userName;
+  //    const password=this.loginFormGroup.value.password;
+  //    return this.LoginData?.some((user:any)=>
+  //    {
+  //       return user.user_name===username && user.password===password
+  //    })
+  // }
   login()
   {
     if(this.loginFormGroup.valid)
@@ -63,14 +64,18 @@ export class LoginComponent implements OnInit {
       this._loginService.getLoginDetailsByName(this.loginFormGroup.value).subscribe({
         next:(res)=>
         {
-          localStorage.setItem('loginCredintials',JSON.stringify(this.loginFormGroup.value))
-           this._router.navigate(['/dashboard'])
+          if(res.success && res.responseData)
+          {
+            localStorage.setItem('loginCredintials',JSON.stringify(this.loginFormGroup.value))
+            this._router.navigate(['/dashboard'])
+          }
+          else{
+               this.LoginError=true
+              //  console.log(this.LoginError);   
+          }
         },
-        error:(err)=>
-        {
-          console.log(err.error);
-          
-           this.loginCheck=true
+        error:(err)=>{
+            console.log(err);   
         }
       })
     }

@@ -9,10 +9,10 @@
           <mat-label>Sku</mat-label>
           <input matInput placeholder="Ex. 1" formControlName="Sku" />
           <mat-error *ngIf="empForm.controls['Sku'].touched && empForm.controls['Sku'].errors?.['required']">
-            Sku is required
+            {{"ITEMS.SKU_REQUIRED"|translate}}
           </mat-error>
           <mat-error *ngIf="empForm.controls['Sku'].dirty && empForm.controls['Sku'].errors?.['noSpaces'] && !empForm.controls['Sku'].errors?.['required']">
-            Front white Spaces are not allowed
+           {{"ITEMS.WHITE_SPACE_VALIDATION"|translate}}
           </mat-error>
         </mat-form-field>
       </div>
@@ -21,16 +21,16 @@
           <mat-label>Name</mat-label>
           <input matInput placeholder="Ex. chicken" formControlName="Name">
           <mat-error *ngIf="empForm.controls['Name'].touched && empForm.controls['Name'].errors?.['required']">
-            Name is required
+           {{'ITEMS.NAME_REQUIRED'|translate}}
           </mat-error>
           <mat-error *ngIf=" empForm.controls['Name'].errors?.['noSpaces'] && !empForm.controls['Name'].errors?.['required']">
-            Front white Spaces are not allowed
+            {{"ITEMS.WHITE_SPACE_VALIDATION"|translate}}
           </mat-error>
           <mat-error *ngIf=" empForm.controls['Name'].errors?.['noNumbers'] && !empForm.controls['Name'].errors?.['noSpaces'] ">
-            Numbers are not allowed
+            {{'ITEMS.NUMBERS_VALIDATION'| translate}}
           </mat-error>
           <mat-error *ngIf=" empForm.controls['Name'].errors?.['noSpecial']  && !empForm.controls['Name'].errors?.['noSpaces'] && !empForm.controls['Name'].errors?.['noNumbers'] ">
-            Special characters are not allowed
+            {{"ITEMS.SPECIAL_CH_VALIDATION"| translate}}
           </mat-error>
         </mat-form-field>
       </div>
@@ -39,16 +39,16 @@
               <mat-label>DisplayName</mat-label>
               <input matInput placeholder="Ex.  Lalipop" formControlName="DisplayName">
               <mat-error *ngIf="empForm.controls['DisplayName'].touched && empForm.controls['DisplayName'].errors?.['required']">
-                DisplayName is required
+               {{'ITEMS.DISPLAY_NAME_REQUIRED'|translate}}
               </mat-error>
               <mat-error *ngIf=" empForm.controls['DisplayName'].errors?.['noSpaces'] && !empForm.controls['DisplayName'].errors?.['required']">
-                Front white Spaces are not allowed
+                {{"ITEMS.WHITE_SPACE_VALIDATION"|translate}}
               </mat-error>
               <mat-error *ngIf=" empForm.controls['DisplayName'].errors?.['noNumbers'] && ! empForm.controls['DisplayName'].errors?.['noSpaces']">
-                Numbers are not allowed
+                {{'ITEMS.NUMBERS_VALIDATION'| translate}}
               </mat-error>
               <mat-error *ngIf=" empForm.controls['DisplayName'].errors?.['noSpecial'] && !empForm.controls['DisplayName'].errors?.['noSpaces'] && !empForm.controls['DisplayName'].errors?.['noNumbers'] ">
-                Special characters are not allowed
+                {{"ITEMS.SPECIAL_CH_VALIDATION"| translate}}
               </mat-error>
           </mat-form-field>
          </div>
@@ -57,13 +57,13 @@
               <mat-label>SellingPrice</mat-label>
               <input matInput type="number" placeholder="Ex. 100"  formControlName="SellingPrice">
               <mat-error *ngIf="empForm.controls['SellingPrice'].touched && empForm.controls['SellingPrice'].errors?.['required']">
-               SellingPrice is required
+               {{"ITEMS.SELLING_PRICE_REQUIRED"|translate}}
               </mat-error>
               <mat-error *ngIf="empForm.controls['SellingPrice'].touched && empForm.controls['SellingPrice'].errors?.['max']">
-                Inavalid Price
+                {{'ITEMS.INVALID_PRICE'|translate}}
                </mat-error>
                <mat-error *ngIf="empForm.controls['SellingPrice'].touched && empForm.controls['SellingPrice'].errors?.['min']">
-                Min price start with 100 rupees
+                {{"ITEMS.PRICE_VALIDATION"|translate}}
                </mat-error>
             </mat-form-field>
          </div>
@@ -72,13 +72,13 @@
               <mat-label>BasePrice</mat-label>
               <input matInput placeholder="Ex. 70" type="number" formControlName="BasePrice">
               <mat-error *ngIf="empForm.controls['BasePrice'].touched && empForm.controls['BasePrice'].errors?.['required']">
-                BasePrice is required
+             {{"ITEMS.BASE_PRICE_REQUIRED"|translate}}
               </mat-error>
               <mat-error *ngIf="empForm.controls['BasePrice'].touched && empForm.controls['BasePrice'].errors?.['max']">
-                Inavlid price
+               {{'ITEMS.INVALID_PRICE'|translate}}
               </mat-error>
               <mat-error *ngIf="empForm.controls['BasePrice'].touched && empForm.controls['BasePrice'].errors?.['min']">
-                Min price start with 100 rupees
+                {{"ITEMS.PRICE_VALIDATION"|translate}}
                </mat-error>
           </mat-form-field>
         </div>
