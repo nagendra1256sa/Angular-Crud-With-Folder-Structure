@@ -48,7 +48,7 @@
          </mat-form-field>
         </div>
         <div>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" style="width: 213px;">
             <mat-label>Dob</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="DOB" [matDatepickerFilter]="dateFilter">
             <mat-hint>MM/DD/YYYY</mat-hint>
@@ -105,7 +105,6 @@
         <mat-label>Phone number {{i+1}}</mat-label>
         <input matInput type="" placeholder="67658848754" [formControlName]="i" maxlength="10">
         <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].hasError('required')">
-          
           {{"USER.PHONE_NUMBER_REQUIRED"|translate}}
         </mat-error>
         <mat-error *ngIf="PhoneControls.controls[i].touched && PhoneControls.controls[i].hasError('pattern')">{{"USER.PHONE_NUMBER_VALIDATION"|translate}}
@@ -118,7 +117,7 @@
    </div>
    <div class="row"><button mat-raised-button color="warn" type="button" (click)="addNumber()">Add number</button></div>
    <div mat-dialog-actions class="actions">
-     <button mat-raised-button routerLink="/dashboard/users">cancel</button>
+     <button mat-raised-button type="button" (click)="dialogClose()">cancel</button>
      <button mat-raised-button color="primary" type="submit" [disabled]="data ? !checkDirty():!userForm.valid">{{data ? 'Update': 'Submit'}}</button>
    </div>
     </div>

@@ -27,11 +27,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardComponent } from './Components/card/card.component';
+import { ConfiramtionDeleteComponent } from './Components/confiramtion-delete/confiramtion-delete.component';
+import { ConfiramtionDialogCloseComponent } from './Components/confiramtion-dialog-close/confiramtion-dialog-close.component';
 @NgModule({
   declarations: [
     ItemsComponent,
     EditAddComponent,
-    CardComponent
+    CardComponent,
+    ConfiramtionDeleteComponent,
+    ConfiramtionDialogCloseComponent
   ],
   imports: [
     CommonModule,

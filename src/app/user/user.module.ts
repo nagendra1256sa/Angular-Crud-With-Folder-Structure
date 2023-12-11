@@ -19,11 +19,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ConfirmationDeletionComponent } from './components/confirmation-deletion/confirmation-deletion.component';
+import { DialogCloseConfirmationComponent } from './components/dialog-close-confirmation/dialog-close-confirmation.component';
 @NgModule({
   declarations: [
     UsersComponent,
     UserFromComponent,
     UserCardComponent,
+    ConfirmationDeletionComponent,
+    DialogCloseConfirmationComponent,
   ],
   imports: [
     CommonModule,

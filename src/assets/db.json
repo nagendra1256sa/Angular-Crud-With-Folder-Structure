@@ -21,7 +21,7 @@
   ],
   "Users": [
     {
-      "Name": "Robert",
+      "Name": "Robert ",
       "LastName": "Downery",
       "Email": "robertD@gmail.com",
       "DOB": "2023-10-03T18:30:00.000Z",
@@ -35,7 +35,7 @@
     },
     {
       "Name": "Johnny",
-      "LastName": "Depp",
+      "LastName": "Dep",
       "Email": "jhonnyD@gmail.com",
       "DOB": "2023-10-31T18:30:00.000Z",
       "Gender": "Male",
@@ -43,8 +43,7 @@
       "Company": "LogiSoft",
       "PhoneNumber": [
         6457655656,
-        6457655656,
-        9465667456
+        6457655656
       ],
       "id": 2
     }

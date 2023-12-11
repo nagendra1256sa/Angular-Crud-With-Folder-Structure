@@ -24,6 +24,11 @@
      display: list-item;
      text-align: left;
   }
+  .menu-button.active {
+    background-color: #dee1f0;
+    color: #5060bc;
+    border:  solid  #dee1f0;
+  }
   .mat-18{
     font-size: 50px;
     width: 50px;

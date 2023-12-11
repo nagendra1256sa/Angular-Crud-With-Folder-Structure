@@ -9,12 +9,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 import { SignUpComponent } from './componenets/sign-up/sign-up.component';
-
+import { LogoutWarningDialogComponent } from './componenets/logout-warning-dialog/logout-warning-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    LogoutWarningDialogComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,9 @@ import { SignUpComponent } from './componenets/sign-up/sign-up.component';
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    TranslateModule
+    TranslateModule,
+    MatDialogModule,
+    MatIconModule
   ]
 })
 export class LoginModule { }

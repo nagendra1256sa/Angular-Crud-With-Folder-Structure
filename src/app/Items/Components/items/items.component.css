@@ -21,4 +21,8 @@ mat-form-field{
   height: 36px;
   margin-left: 3px;
 }
+tr:hover{
+  background-color: #e0e0e0;
+  color: #333;
+}
 

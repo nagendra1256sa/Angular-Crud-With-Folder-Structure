@@ -1,0 +1,13 @@
+button {
+    margin-right: 8px;
+  }
+.title{
+  display: flex;
+  position: relative;
+  }
+  .mat-18{
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    margin-right: 10px;
+  }

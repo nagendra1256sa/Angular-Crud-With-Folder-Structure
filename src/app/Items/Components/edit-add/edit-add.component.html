@@ -1,99 +1,149 @@
-
-<form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="dialog_container">
-    <div mat-dialog-title>
+<form [formGroup]="ItemForm" (ngSubmit)="onSubmit()" class="dialog_container">
+  <div mat-dialog-title>
     <h2>Food items form</h2>
   </div>
-    <div mat-dialog-content class="content">
-      <div class="row">
-         <mat-form-field appearance="outline">
-          <mat-label>Sku</mat-label>
-          <input matInput placeholder="Ex. 1" formControlName="Sku" />
-          <mat-error *ngIf="empForm.controls['Sku'].touched && empForm.controls['Sku'].errors?.['required']">
-            {{"ITEMS.SKU_REQUIRED"|translate}}
-          </mat-error>
-          <mat-error *ngIf="empForm.controls['Sku'].dirty && empForm.controls['Sku'].errors?.['noSpaces'] && !empForm.controls['Sku'].errors?.['required']">
-           {{"ITEMS.WHITE_SPACE_VALIDATION"|translate}}
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Ex. chicken" formControlName="Name">
-          <mat-error *ngIf="empForm.controls['Name'].touched && empForm.controls['Name'].errors?.['required']">
-           {{'ITEMS.NAME_REQUIRED'|translate}}
-          </mat-error>
-          <mat-error *ngIf=" empForm.controls['Name'].errors?.['noSpaces'] && !empForm.controls['Name'].errors?.['required']">
-            {{"ITEMS.WHITE_SPACE_VALIDATION"|translate}}
-          </mat-error>
-          <mat-error *ngIf=" empForm.controls['Name'].errors?.['noNumbers'] && !empForm.controls['Name'].errors?.['noSpaces'] ">
-            {{'ITEMS.NUMBERS_VALIDATION'| translate}}
-          </mat-error>
-          <mat-error *ngIf=" empForm.controls['Name'].errors?.['noSpecial']  && !empForm.controls['Name'].errors?.['noSpaces'] && !empForm.controls['Name'].errors?.['noNumbers'] ">
-            {{"ITEMS.SPECIAL_CH_VALIDATION"| translate}}
-          </mat-error>
-        </mat-form-field>
-      </div>
-         <div class="row">
-            <mat-form-field appearance="outline">
-              <mat-label>DisplayName</mat-label>
-              <input matInput placeholder="Ex.  Lalipop" formControlName="DisplayName">
-              <mat-error *ngIf="empForm.controls['DisplayName'].touched && empForm.controls['DisplayName'].errors?.['required']">
-               {{'ITEMS.DISPLAY_NAME_REQUIRED'|translate}}
-              </mat-error>
-              <mat-error *ngIf=" empForm.controls['DisplayName'].errors?.['noSpaces'] && !empForm.controls['DisplayName'].errors?.['required']">
-                {{"ITEMS.WHITE_SPACE_VALIDATION"|translate}}
-              </mat-error>
-              <mat-error *ngIf=" empForm.controls['DisplayName'].errors?.['noNumbers'] && ! empForm.controls['DisplayName'].errors?.['noSpaces']">
-                {{'ITEMS.NUMBERS_VALIDATION'| translate}}
-              </mat-error>
-              <mat-error *ngIf=" empForm.controls['DisplayName'].errors?.['noSpecial'] && !empForm.controls['DisplayName'].errors?.['noSpaces'] && !empForm.controls['DisplayName'].errors?.['noNumbers'] ">
-                {{"ITEMS.SPECIAL_CH_VALIDATION"| translate}}
-              </mat-error>
-          </mat-form-field>
-         </div>
-         <div class="row">
-            <mat-form-field appearance="outline">
-              <mat-label>SellingPrice</mat-label>
-              <input matInput type="number" placeholder="Ex. 100"  formControlName="SellingPrice">
-              <mat-error *ngIf="empForm.controls['SellingPrice'].touched && empForm.controls['SellingPrice'].errors?.['required']">
-               {{"ITEMS.SELLING_PRICE_REQUIRED"|translate}}
-              </mat-error>
-              <mat-error *ngIf="empForm.controls['SellingPrice'].touched && empForm.controls['SellingPrice'].errors?.['max']">
-                {{'ITEMS.INVALID_PRICE'|translate}}
-               </mat-error>
-               <mat-error *ngIf="empForm.controls['SellingPrice'].touched && empForm.controls['SellingPrice'].errors?.['min']">
-                {{"ITEMS.PRICE_VALIDATION"|translate}}
-               </mat-error>
-            </mat-form-field>
-         </div>
-         <div class="row">
-          <mat-form-field appearance="outline" >
-              <mat-label>BasePrice</mat-label>
-              <input matInput placeholder="Ex. 70" type="number" formControlName="BasePrice">
-              <mat-error *ngIf="empForm.controls['BasePrice'].touched && empForm.controls['BasePrice'].errors?.['required']">
-             {{"ITEMS.BASE_PRICE_REQUIRED"|translate}}
-              </mat-error>
-              <mat-error *ngIf="empForm.controls['BasePrice'].touched && empForm.controls['BasePrice'].errors?.['max']">
-               {{'ITEMS.INVALID_PRICE'|translate}}
-              </mat-error>
-              <mat-error *ngIf="empForm.controls['BasePrice'].touched && empForm.controls['BasePrice'].errors?.['min']">
-                {{"ITEMS.PRICE_VALIDATION"|translate}}
-               </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field appearance="outline">
-              <mat-label>Description</mat-label>
-              <input matInput placeholder="Ex. Quality is good" type="text" formControlName="Description">
-          </mat-form-field>
-         </div>
-         <!-- <div class="row" *ngFor="let number of addPNumber;let i=index">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Sku</mat-label>
+        <input matInput placeholder="Ex. 1" formControlName="Sku" />
+        <mat-error
+          *ngIf="ItemForm.controls['Sku'].touched && ItemForm.controls['Sku'].errors?.['required']"
+        >
+          {{ "ITEMS.SKU_REQUIRED" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf="ItemForm.controls['Sku'].dirty && ItemForm.controls['Sku'].errors?.['noSpaces'] && !ItemForm.controls['Sku'].errors?.['required']"
+        >
+          {{ "ITEMS.WHITE_SPACE_VALIDATION" | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Ex. chicken" formControlName="Name" />
+        <mat-error
+          *ngIf="ItemForm.controls['Name'].touched && ItemForm.controls['Name'].errors?.['required']"
+        >
+          {{ "ITEMS.NAME_REQUIRED" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf=" ItemForm.controls['Name'].errors?.['noSpaces'] && !ItemForm.controls['Name'].errors?.['required']"
+        >
+          {{ "ITEMS.WHITE_SPACE_VALIDATION" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf=" ItemForm.controls['Name'].errors?.['noNumbers'] && !ItemForm.controls['Name'].errors?.['noSpaces'] "
+        >
+          {{ "ITEMS.NUMBERS_VALIDATION" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf=" ItemForm.controls['Name'].errors?.['noSpecial']  && !ItemForm.controls['Name'].errors?.['noSpaces'] && !ItemForm.controls['Name'].errors?.['noNumbers'] "
+        >
+          {{ "ITEMS.SPECIAL_CH_VALIDATION" | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>DisplayName</mat-label>
+        <input
+          matInput
+          placeholder="Ex.  Lalipop"
+          formControlName="DisplayName"
+        />
+        <mat-error
+          *ngIf="ItemForm.controls['DisplayName'].touched && ItemForm.controls['DisplayName'].errors?.['required']"
+        >
+          {{ "ITEMS.DISPLAY_NAME_REQUIRED" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf=" ItemForm.controls['DisplayName'].errors?.['noSpaces'] && !ItemForm.controls['DisplayName'].errors?.['required']"
+        >
+          {{ "ITEMS.WHITE_SPACE_VALIDATION" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf=" ItemForm.controls['DisplayName'].errors?.['noNumbers'] && ! ItemForm.controls['DisplayName'].errors?.['noSpaces']"
+        >
+          {{ "ITEMS.NUMBERS_VALIDATION" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf=" ItemForm.controls['DisplayName'].errors?.['noSpecial'] && !ItemForm.controls['DisplayName'].errors?.['noSpaces'] && !ItemForm.controls['DisplayName'].errors?.['noNumbers'] "
+        >
+          {{ "ITEMS.SPECIAL_CH_VALIDATION" | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>SellingPrice</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ex. 100"
+          formControlName="SellingPrice"
+        />
+        <mat-error
+          *ngIf="ItemForm.controls['SellingPrice'].touched && ItemForm.controls['SellingPrice'].errors?.['required']"
+        >
+          {{ "ITEMS.SELLING_PRICE_REQUIRED" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf="ItemForm.controls['SellingPrice'].touched && ItemForm.controls['SellingPrice'].errors?.['max']"
+        >
+          {{ "ITEMS.INVALID_PRICE" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf="ItemForm.controls['SellingPrice'].touched && ItemForm.controls['SellingPrice'].errors?.['min']"
+        >
+          {{ "ITEMS.PRICE_VALIDATION" | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>BasePrice</mat-label>
+        <input
+          matInput
+          placeholder="Ex. 70"
+          type="number"
+          formControlName="BasePrice"
+        />
+        <mat-error
+          *ngIf="ItemForm.controls['BasePrice'].touched && ItemForm.controls['BasePrice'].errors?.['required']"
+        >
+          {{ "ITEMS.BASE_PRICE_REQUIRED" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf="ItemForm.controls['BasePrice'].touched && ItemForm.controls['BasePrice'].errors?.['max']"
+        >
+          {{ "ITEMS.INVALID_PRICE" | translate }}
+        </mat-error>
+        <mat-error
+          *ngIf="ItemForm.controls['BasePrice'].touched && ItemForm.controls['BasePrice'].errors?.['min']"
+        >
+          {{ "ITEMS.PRICE_VALIDATION" | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          placeholder="Ex. Quality is good"
+          type="text"
+          formControlName="Description"
+        />
+      </mat-form-field>
+    </div>
+    <!-- <div class="row" *ngFor="let number of addPNumber;let i=index">
           <div formArrayName="phoneNumbers">
             <mat-form-field appearance="outline">
               <mat-label>Phone number</mat-label>
               <input matInput type="number" placeholder="Enter PhoneNumber" [formControlName]="i.toString()" >
-              <mat-error *ngIf="empForm.get('phoneNumbers')?.get(i.toString())?.touched && empForm.get('phoneNumbers')?.get(i.toString())?.hasError('required')">
+              <mat-error *ngIf="ItemForm.get('phoneNumbers')?.get(i.toString())?.touched && ItemForm.get('phoneNumbers')?.get(i.toString())?.hasError('required')">
                 phone number is required
               </mat-error>
             </mat-form-field> 
@@ -103,8 +153,16 @@
          <button mat-raised-button type="button" color="accent" (click)="addNumber()">Add PhoneNumber</button> -->
   </div>
   <div mat-dialog-actions class="actions">
-      <button mat-raised-button type="button"  routerLink="/dashboard/items">cancel</button>
-      <button mat-raised-button color="primary" type="submit" [disabled]="data ? !checkDirty(): !empForm.valid">{{data? 'Update':'save'}}</button>
+    <button mat-raised-button type="button" (click)="closeDialog()">
+      cancel
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="data ? !checkDirty() : !ItemForm.valid"
+    >
+      {{ data ? "Update" : "save" }}
+    </button>
   </div>
-  </form>
-  
+</form>
