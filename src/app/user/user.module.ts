@@ -21,6 +21,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ConfirmationDeletionComponent } from './components/confirmation-deletion/confirmation-deletion.component';
 import { DialogCloseConfirmationComponent } from './components/dialog-close-confirmation/dialog-close-confirmation.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     UsersComponent,
@@ -46,7 +48,9 @@ import { DialogCloseConfirmationComponent } from './components/dialog-close-conf
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    TranslateModule
+    TranslateModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ]
 })
 export class UserModule { }

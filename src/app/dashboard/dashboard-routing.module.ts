@@ -10,10 +10,11 @@ import { UserFromComponent } from '../user/components/user-from/user-from.compon
 import { authGuardGuard } from '../gaurds/auth-guard.guard';
 import { AddFoemOpen } from '../user/components/add&edit/userAdd';
 import { EditOpenComponent } from '../user/components/add&edit/userEdit';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'dashboard',
     component:DashboardComponent,
     children:[
       {
@@ -45,8 +46,12 @@ const routes: Routes = [
             path:'card/:id',component:UserCardComponent
           }
         ]
-      }
+      },
     ]
+  }
+  ,  {
+    path:'**',
+    component:NotFoundComponent
   }
 ];
 

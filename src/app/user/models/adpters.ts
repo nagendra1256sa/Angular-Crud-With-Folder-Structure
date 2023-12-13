@@ -22,15 +22,15 @@ export interface UserEditDetailsType {
   Company: string;
   PhoneNumber: string[];
 }
-export class addUsers {
-  Name?: string;
-  LastName?: string;
-  Email?: String;
-  DOB?: string;
-  Gender?: string;
-  Education?: string;
-  Company?: string;
-  PhoneNumber?: string[];
+export interface addUsers {
+  Name: string;
+  LastName: string;
+  Email: String;
+  DOB: string;
+  Gender: string;
+  Education: string;
+  Company: string;
+  PhoneNumber: string[];
 }
 export interface ConfirmationDialogCloseCheck {
   title: string;

@@ -11,7 +11,7 @@
     },
     {
       "Sku": "2",
-      "Name": "Mutton",
+      "Name": "Mutton ",
       "DisplayName": "Fry",
       "SellingPrice": "200",
       "BasePrice": 170,
@@ -34,7 +34,7 @@
       "id": 1
     },
     {
-      "Name": "Johnny",
+      "Name": "Johny ",
       "LastName": "Dep",
       "Email": "jhonnyD@gmail.com",
       "DOB": "2023-10-31T18:30:00.000Z",

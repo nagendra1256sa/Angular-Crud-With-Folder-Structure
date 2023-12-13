@@ -2,3 +2,39 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mainBody{
+    max-width: 1248px;
+    margin: 0 auto;
+   
+  }
+  mat-form-field{
+    width: 100%;
+  }
+  .addbutton_container {
+    position: fixed;
+    bottom: 70px; 
+    right: 48px;
+    
+  }
+  .error{
+    text-align: center;
+    color: red;
+  }
+  .translate{
+    width: 87px;
+    height: 33px;
+    margin: 7px;
+  }
+  tr:hover{
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  .spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  .language{
+    display: contents;
+   
+  }

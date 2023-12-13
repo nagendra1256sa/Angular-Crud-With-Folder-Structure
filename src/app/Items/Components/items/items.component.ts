@@ -8,17 +8,19 @@ import { filter } from 'rxjs';
 import { Service } from '../../dataProviders/service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ConfiramtionDeleteComponent } from '../confiramtion-delete/confiramtion-delete.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css'],
+  styleUrls: ['./items.component.scss'],
 })
 export class ItemsComponent implements OnInit {
   displayedColumns: string[] = ['Sku', 'Name', 'SellingPrice', 'action'];
   dataSource!: MatTableDataSource<any>;
   public ItemsError?: string;
   public filterLanguages!: string[];
+  public loading=false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -26,36 +28,37 @@ export class ItemsComponent implements OnInit {
     private _matDialog: MatDialog,
     private _ItemService: Service,
     private _ItemRouter: Router,
-    private _ItemActivateRouter: ActivatedRoute,
-    public translate: TranslateService
+    public snackBar:MatSnackBar
   ) {
-    this.filterLanguages = this.translate
-      .getLangs()
-      .filter((lang) => lang !== 'he');
   }
-  switchLang(Lang: string) {
-    this.translate.use(Lang);
-  }
+
   ngOnInit(): void {
     this.getItemList();
-    this._ItemRouter.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        if (this._ItemActivateRouter.snapshot.routeConfig?.path === 'items') {
-          this.getItemList();
-        }
-      });
+    // this._ItemRouter.events
+    //   .pipe(filter((event) => event instanceof NavigationEnd))
+    //   .subscribe(() => {
+    //     if (this._ItemActivateRouter.snapshot.routeConfig?.path === 'items') {
+    //       this.getItemList();
+    //     }
+    //   });
   }
   getItemList(): void {
+    this.loading=true;
     this._ItemService.getItemList().subscribe({
       next: (res) => {
-        if (res.responseData && res.success) {
+        if (res.responseData?.length !==0 && res.success) {
           this.dataSource = new MatTableDataSource(res.responseData);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
-        } else {
-          this.ItemsError = res.message;
+        } else if(res.message) {
+            this.snackBar.open(res.message,'OK',{
+              duration:3000
+            })
         }
+        else{
+          this.ItemsError="There is no data in items table"
+        }
+        this.loading=false;
       },
       error: (err) => {
         console.log(err);
@@ -96,10 +99,10 @@ export class ItemsComponent implements OnInit {
     //     }
     //   }
     // })
-    this._ItemRouter.navigate([`/dashboard/items/edit/${id}`]);
+    this._ItemRouter.navigate([`main/dashboard/items/edit/${id}`]);
   }
   openCardDialog(id: number) {
-    this._ItemRouter.navigate([`dashboard/items/card/${id}`]);
+    this._ItemRouter.navigate([`main/dashboard/items/card/${id}`]);
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -120,6 +123,6 @@ export class ItemsComponent implements OnInit {
     //     }
     //   }
     // })
-    this._ItemRouter.navigate(['dashboard/items/add']);
+    this._ItemRouter.navigate(['main/dashboard/items/add']);
   }
 }

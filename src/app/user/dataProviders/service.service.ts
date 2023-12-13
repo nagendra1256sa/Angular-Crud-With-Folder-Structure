@@ -19,7 +19,7 @@ export class UserService {
   }
   addUsers(data:addUsers):Observable<addUsers>
   {
-    return this._http.post(" http://localhost:5000/users",data,{
+    return this._http.post<addUsers>(" http://localhost:5000/users",data,{
       headers:{
         'contentType':"application/json"
       }
@@ -54,14 +54,14 @@ export class UserService {
            }
     }),
     catchError((error:HttpErrorResponse)=>{
-       return of({success: true,
+       return of({success: false,
         message:this.translate.instant('USER.404ERROR')
       })
     }));
   }
   deleteUser(id:number):Observable<addUsers>
   {
-    return this._http.delete(` http://localhost:5000/Users/${id}`)
+    return this._http.delete<addUsers>(` http://localhost:5000/Users/${id}`)
   }
   getUserListById(id:number):Observable<UserEditDetailsType>
   {

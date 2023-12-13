@@ -11,6 +11,7 @@ import { Service } from '../../dataProviders/service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfiramtionDialogCloseComponent } from '../confiramtion-dialog-close/confiramtion-dialog-close.component';
+import { ItemsComponent } from '../items/items.component';
 
 export interface EditDetailsType {
   id: number;
@@ -35,7 +36,8 @@ export class EditAddComponent implements OnInit {
     private _ItemService: Service,
     private _ActiveRoute: ActivatedRoute,
     private _NRouter: Router,
-    private matDialog: MatDialog // private _dialogRef:MatDialogRef<EditAddComponent>, // @Inject(MAT_DIALOG_DATA) public data:any
+    private matDialog: MatDialog ,// private _dialogRef:MatDialogRef<EditAddComponent>, // @Inject(MAT_DIALOG_DATA) public data:any
+    private getItems:ItemsComponent
   ) {
     this.ItemForm = this._fb.group({
       Sku: new FormControl('', [Validators.required, this.noSpaceValidator()]),
@@ -99,7 +101,7 @@ export class EditAddComponent implements OnInit {
         },
         error: () => {
           alert('Not Found');
-          this._NRouter.navigate(['dashboard/items']);
+          this._NRouter.navigate(['main/dashboard/items']);
         },
       });
     }
@@ -112,7 +114,8 @@ export class EditAddComponent implements OnInit {
           .subscribe({
             next: () => {
               // this._dialogRef.close(true);
-              this._NRouter.navigate(['/dashboard/items']);
+              this.getItems.getItemList();
+              this._NRouter.navigate(['main/dashboard/items']);
             },
             error: (err: any) => {
               console.log(err);
@@ -125,7 +128,8 @@ export class EditAddComponent implements OnInit {
           next: () => {
             alert('data is added');
             // this._dialogRef.close(true);
-            this._NRouter.navigate(['/dashboard/items']);
+            this.getItems.getItemList();
+            this._NRouter.navigate(['main/dashboard/items']);
           },
           error: (err: any) => {
             console.log(err);
@@ -163,11 +167,11 @@ export class EditAddComponent implements OnInit {
       });
       dialog.afterClosed().subscribe((result) => {
         if (result) {
-          this._NRouter.navigate(['/dashboard/items']);
+          this._NRouter.navigate(['main/dashboard/items']);
         }
       });
     } else {
-      this._NRouter.navigate(['/dashboard/items']);
+      this._NRouter.navigate(['main/dashboard/items']);
     }
   }
 }

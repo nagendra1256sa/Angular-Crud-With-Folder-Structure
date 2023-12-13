@@ -27,12 +27,8 @@ export class CardComponent implements OnInit{
       },error:()=>
       {
         alert('Not Found')
-        this._router.navigate(['dashboard/items'])
+        this._router.navigate(['main/dashboard/items'])
       }
      })
-  }
-  call()
-  {
-    this._router.navigate(['/dashboard/items'])
   }
 }

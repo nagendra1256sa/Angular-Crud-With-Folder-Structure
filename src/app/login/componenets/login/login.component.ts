@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   public LoginError!: boolean;
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
                 'loginCredintials',
                 JSON.stringify(this.loginFormGroup.value)
               );
-              this._router.navigate(['/dashboard']);
+              this._router.navigate(['/main/dashboard']);
             } else {
               this.LoginError = true;
               //  console.log(this.LoginError);

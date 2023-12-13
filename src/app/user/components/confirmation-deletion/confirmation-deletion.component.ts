@@ -5,7 +5,7 @@ import { ConfirmationDeleteCheck } from '../../models/adpters';
 @Component({
   selector: 'app-confirmation-deletion',
   templateUrl: './confirmation-deletion.component.html',
-  styleUrls: ['./confirmation-deletion.component.css'],
+  styleUrls: ['./confirmation-deletion.component.scss'],
 })
 export class ConfirmationDeletionComponent {
   constructor(

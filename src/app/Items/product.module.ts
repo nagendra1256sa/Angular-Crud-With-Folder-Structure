@@ -29,6 +29,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CardComponent } from './Components/card/card.component';
 import { ConfiramtionDeleteComponent } from './Components/confiramtion-delete/confiramtion-delete.component';
 import { ConfiramtionDialogCloseComponent } from './Components/confiramtion-dialog-close/confiramtion-dialog-close.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     ItemsComponent,
@@ -55,7 +57,10 @@ import { ConfiramtionDialogCloseComponent } from './Components/confiramtion-dial
     MatMenuModule,
     MatDialogModule,
     HttpClientModule,
-    TranslateModule
+    TranslateModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
+    
   ]
 })
 export class ProductModule { }

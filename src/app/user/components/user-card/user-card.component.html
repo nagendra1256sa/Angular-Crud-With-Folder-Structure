@@ -2,29 +2,29 @@
   <h2>Employee Details</h2>
   <div class="content">
     <div class="detail-item">
-      <span class="data-label">Name</span>: {{ data.Name }}
+      <span class="data-label">Name</span>: {{ data?.Name }}
     </div>
     <div class="detail-item">
-      <span class="data-label">Last Name</span>: {{ data.LastName }}
+      <span class="data-label">Last Name</span>: {{ data?.LastName }}
     </div>
     <div class="detail-item">
-      <span class="data-label">DOB</span>: {{ data.DOB | date }}
+      <span class="data-label">DOB</span>: {{ data?.DOB | date }}
     </div>
     <div class="detail-item">
-      <span class="data-label">Email</span>: {{ data.Email }}
+      <span class="data-label">Email</span>: {{ data?.Email }}
     </div>
     <div class="detail-item">
-      <span class="data-label">Gender</span>: {{ data.Gender }}
+      <span class="data-label">Gender</span>: {{ data?.Gender }}
     </div>
     <div class="detail-item">
-      <span class="data-label">Education</span>: {{ data.Education }}
+      <span class="data-label">Education</span>: {{ data?.Education }}
     </div>
     <div class="detail-item">
-      <span class="data-label">Company</span>: {{ data.Company }}
+      <span class="data-label">Company</span>: {{ data?.Company }}
     </div>
     <div *ngFor="let user of data?.PhoneNumber; let i = index" class="detail-item">
       <span class="data-label">Phone Number {{ i + 1 }}</span>: {{ user }}
     </div>
   </div>
-  <button mat-raised-button color="primary" routerLink="/dashboard/users" style="float: right;">Back</button>
+  <button mat-raised-button color="primary" routerLink="/main/dashboard/users" style="float: right;">Back</button>
 </div>

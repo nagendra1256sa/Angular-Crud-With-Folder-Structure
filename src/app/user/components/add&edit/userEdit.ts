@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserFromComponent } from '../user-from/user-from.component';
 import { UserService } from '../../dataProviders/service.service';
+import { UsersComponent } from '../users/users.component';
 
 @Component({
   selector: 'app-edit-open',
@@ -13,7 +14,8 @@ export class EditOpenComponent {
     private mataDialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
-    private userIdService: UserService
+    private userIdService: UserService,
+    private getUser:UsersComponent
   ) {
     const UserId = this.route.snapshot.paramMap.get('id');
     const id = UserId ? parseInt(UserId) : NaN;
@@ -28,7 +30,8 @@ export class EditOpenComponent {
       data: data,
     });
     dialog.afterClosed().subscribe((result) => {
-      this.router.navigate(['dashboard/users']);
+      this.getUser.getUserData();
+      this.router.navigate(['main/dashboard/users']);
     });
   }
 }

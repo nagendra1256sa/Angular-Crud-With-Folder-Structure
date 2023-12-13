@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ChangePasswordComponent } from 'src/app/change-password/Components/change-password/change-password.component';
 import { LogoutWarningDialogComponent } from 'src/app/login/componenets/logout-warning-dialog/logout-warning-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent  {
-  constructor(private _matDialog:MatDialog,
-              private _route:Router)
-  { }
+  public filterLang!: string[];
+  constructor(private _matDialog:MatDialog, private _route:Router,public translate:TranslateService)
+  { 
+    this.filterLang = this.translate.getLangs().filter((lang) => lang !== 'he');
+  }
   // openItems()
   // {
   //   this._route.navigate(['dashboard/items'])
@@ -40,6 +43,9 @@ export class DashboardComponent  {
   changePassword()
   {
       this._matDialog.open(ChangePasswordComponent)
+  }
+  switchLang(lang: string) {
+    this.translate.use(lang);
   }
 }
 

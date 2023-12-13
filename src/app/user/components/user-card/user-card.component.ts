@@ -6,10 +6,10 @@ import { addUsers } from '../../models/adpters';
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.css'],
+  styleUrls: ['./user-card.component.scss'],
 })
 export class UserCardComponent implements OnInit {
-  public data!: addUsers;
+  public data: addUsers | undefined;
 
   // routeSubscription: any;
   constructor(
@@ -30,7 +30,7 @@ export class UserCardComponent implements OnInit {
       },
       error: () => {
         alert('Not Found');
-        this._NRouter.navigate(['dashboard/users']);
+        this._NRouter.navigate(['main/dashboard/users']);
       },
     });
   }

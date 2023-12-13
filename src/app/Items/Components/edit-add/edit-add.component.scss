@@ -26,11 +26,13 @@ mat-form-field{
 }
 .actions {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    float: right;
     margin-top: 4px;
     gap: 5px;
   }
   mat-error{
     gap:3px;
+  }
+  .mdc-dialog__title {
+    display: flex;
   }

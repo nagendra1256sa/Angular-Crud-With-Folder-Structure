@@ -2,16 +2,9 @@
 //     color: red;
 //     font-family: 'Times New Roman', Times, serif;
 // }
-// .dialog_container{
-//     position: fixed;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     background-color: white;
-//     padding: 20px;
-//     border-radius: 8px;
-//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-// }
+.dialog_container{
+    border-radius: 10px;
+}
 .row{
     display: flex;
     gap: 10px;
@@ -29,6 +22,14 @@
     margin-top: 4px;
     gap: 5px;
 } 
+.mdc-dialog__title {
+  display: flex;
+  padding: 20px;
+}
+mat-icon:hover{
+  background-color: #e0e0e0;
+  color: #333;
+}
 // mat-form-field.ng-invalid.ng-touched {
 //     animation: example;
 //     animation-duration: 0.2s;

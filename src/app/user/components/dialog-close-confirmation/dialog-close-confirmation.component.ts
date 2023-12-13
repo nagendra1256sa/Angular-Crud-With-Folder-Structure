@@ -5,7 +5,7 @@ import { ConfirmationDialogCloseCheck } from '../../models/adpters';
 @Component({
   selector: 'app-dialog-close-confirmation',
   templateUrl: './dialog-close-confirmation.component.html',
-  styleUrls: ['./dialog-close-confirmation.component.css'],
+  styleUrls: ['./dialog-close-confirmation.component.scss'],
 })
 export class DialogCloseConfirmationComponent {
   constructor(

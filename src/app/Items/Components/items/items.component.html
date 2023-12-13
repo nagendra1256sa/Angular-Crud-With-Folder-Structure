@@ -1,20 +1,4 @@
-<div class="mainBody" *ngIf="!ItemsError">
-  <section style="display: flex">
-    <h2>Language Change :</h2>
-    <select
-      class="translate"
-      #SelectedLang
-      (click)="switchLang(SelectedLang.value)"
-    >
-      <option
-        *ngFor="let language of filterLanguages"
-        [value]="language"
-        [selected]="language === translate.currentLang"
-      >
-        {{ language }}
-      </option>
-    </select>
-  </section>
+<div class="mainBody" *ngIf="dataSource">
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input
@@ -92,14 +76,15 @@
       aria-label="Select page of users"
     ></mat-paginator>
   </div>
+  <ng-container>
+    <div class="addbutton_container">
+      <button mat-fab color="primary" class="addB" (click)="openAddEditForm()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </ng-container>
 </div>
-<ng-container>
-  <div class="button_container">
-    <button mat-fab color="primary" class="addB" (click)="openAddEditForm()">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
-</ng-container>
+<mat-spinner diameter="50" class="spinner" *ngIf="loading"></mat-spinner>
 <div *ngIf="ItemsError" class="error">
   <h2>{{ ItemsError }}</h2>
 </div>

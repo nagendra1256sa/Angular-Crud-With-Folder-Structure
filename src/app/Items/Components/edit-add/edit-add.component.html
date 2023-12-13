@@ -1,5 +1,5 @@
 <form [formGroup]="ItemForm" (ngSubmit)="onSubmit()" class="dialog_container">
-  <div mat-dialog-title>
+  <div mat-dialog-title >
     <h2>Food items form</h2>
   </div>
   <div mat-dialog-content class="content">
@@ -153,9 +153,7 @@
          <button mat-raised-button type="button" color="accent" (click)="addNumber()">Add PhoneNumber</button> -->
   </div>
   <div mat-dialog-actions class="actions">
-    <button mat-raised-button type="button" (click)="closeDialog()">
-      cancel
-    </button>
+    <button mat-raised-button color="warn"  (click)="closeDialog()">cancel</button>
     <button
       mat-raised-button
       color="primary"

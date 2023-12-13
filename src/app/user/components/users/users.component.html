@@ -1,26 +1,10 @@
-<div class="main_body" *ngIf="!errors">
-  <section style="display: flex">
-    <h2>Languages Change :</h2>
-    <select
-      class="translate"
-      #selectedLang
-      (click)="switchLang(selectedLang.value)"
-    >
-      <option
-        *ngFor="let language of filterLang"
-        [value]="language"
-        [selected]="language === translate.currentLang"
-      >
-        <div *ngIf="language !== 'he'">{{ language }}</div>
-      </option>
-    </select>
-  </section>
+<div class="mainBody" *ngIf="dataSource" >
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input
       matInput
       (keyup)="applyFilter($event)"
-      placeholder="Ex. Sai"
+      placeholder="Ex. Santhoshi"
       #input
     />
   </mat-form-field>
@@ -121,7 +105,7 @@
   </div>
   <div>
     <ng-container>
-      <div class="button_container">
+      <div class="addbutton_container">
         <button mat-fab color="primary" class="addB" (click)="openAddForm()">
           <mat-icon>add</mat-icon>
         </button>
@@ -129,7 +113,8 @@
     </ng-container>
   </div>
 </div>
-<div *ngIf="errors" style="text-align: center">
+<mat-spinner class="spinner" [diameter]="50" *ngIf="loading"></mat-spinner>
+<div *ngIf="errors" style="text-align: center;color: red;">
   <h2>
     {{ errors }}
   </h2>

@@ -1,6 +1,8 @@
 <form [formGroup]="userForm" class="dialog_container" (ngSubmit)="onSubmit()">
     <div mat-dialog-title>
          <h2>User form</h2>
+         <span style="flex: 1 1 auto;"></span>
+         <mat-icon (click)="dialogClose()">cancel</mat-icon>
     </div>
     <div mat-dialog-content class="content">
       <div class="row">
@@ -84,8 +86,10 @@
               <mat-option *ngFor="let study of Education" [value]="study.value">
                 {{study.viewValue}}
               </mat-option>
-             
             </mat-select>
+            <mat-error *ngIf="userForm.controls['Education'].touched && userForm.controls['Education'].hasError('required')">
+              Education is required
+            </mat-error>
           </mat-form-field>
         </div>
         <div>
@@ -117,7 +121,6 @@
    </div>
    <div class="row"><button mat-raised-button color="warn" type="button" (click)="addNumber()">Add number</button></div>
    <div mat-dialog-actions class="actions">
-     <button mat-raised-button type="button" (click)="dialogClose()">cancel</button>
      <button mat-raised-button color="primary" type="submit" [disabled]="data ? !checkDirty():!userForm.valid">{{data ? 'Update': 'Submit'}}</button>
    </div>
     </div>

@@ -11,9 +11,12 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     DashboardComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     HttpClientModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ]
 })
 export class DashboardModule { }
