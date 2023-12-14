@@ -10,7 +10,7 @@ import { DetailsType } from '../../Models/adpater';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit{
-  public data:DetailsType|undefined
+  public data:DetailsType|undefined;
   // routeSubscription: any;
     constructor(private _Activated:ActivatedRoute,private getDataById:Service,private _router:Router){}
   ngOnInit(): void {

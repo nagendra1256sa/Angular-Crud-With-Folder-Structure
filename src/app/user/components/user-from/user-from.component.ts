@@ -33,9 +33,7 @@ export class UserFromComponent implements OnInit {
   ];
   constructor(
     private _fb: FormBuilder,
-    private _NRouter: Router,
     private _userService: UserService,
-    private ActiveRoute: ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data: UserEditDetailsType,
     private matDialogRef: MatDialogRef<UserFromComponent>,
     private matDialog: MatDialog

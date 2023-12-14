@@ -41,14 +41,14 @@ export class LoginService {
   //    })
   //    )
   // }
-  postLoginDetails(data: any) {
+  postLoginDetails(data: LoginDataTypeCheck) {
     return this._http.post('http://localhost:4000/user', data, {
       headers: {
         contentType: 'application/json',
       },
     });
   }
-  getLoginDetailsByName(data: any): Observable<GetLoginDataTypeCheck> {
+  getLoginDetailsByName(data: LoginDataTypeCheck): Observable<GetLoginDataTypeCheck> {
     return this._http
       .post('http://localhost:4000/user/name', data, { observe: 'response' })
       .pipe(
@@ -72,7 +72,7 @@ export class LoginService {
         })
       );
   }
-  putDeatils(name: string, data: any): Observable<LoginDataTypeCheck> {
+  putDeatils(name: string, data: LoginDataTypeCheck): Observable<LoginDataTypeCheck> {
     return this._http.put<LoginDataTypeCheck>(
       `http://localhost:4000/user/${name}/password`,
       data

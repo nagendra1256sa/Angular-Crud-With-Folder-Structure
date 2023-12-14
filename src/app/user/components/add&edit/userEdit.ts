@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserFromComponent } from '../user-from/user-from.component';
 import { UserService } from '../../dataProviders/service.service';
 import { UsersComponent } from '../users/users.component';
+import { addUsers } from '../../models/adpters';
 
 @Component({
   selector: 'app-edit-open',
@@ -25,7 +26,7 @@ export class EditOpenComponent {
       },
     });
   }
-  openDialog(data: any) {
+  openDialog(data: addUsers) {
     const dialog = this.mataDialog.open(UserFromComponent, {
       data: data,
     });
