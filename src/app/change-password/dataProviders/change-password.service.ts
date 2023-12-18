@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginDataTypeCheck } from '../models/typeCheck';
+import { UpdateDataTypeCheck } from '../models/typeCheck';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +11,9 @@ export class ChangePasswordService {
 
   putLoginDeatils(
     name: string,
-    data: LoginDataTypeCheck
-  ): Observable<LoginDataTypeCheck> {
-    return this._httpPassword.put<LoginDataTypeCheck>(
+    data: UpdateDataTypeCheck
+  ): Observable<UpdateDataTypeCheck> {
+    return this._httpPassword.put<UpdateDataTypeCheck>(
       `http://localhost:4000/User/${name}/password`,
       data
     );

@@ -1,4 +1,4 @@
-export interface LoginDataTypeCheck{
+export interface UpdateDataTypeCheck{
      userName:string;
      password:string;
 }

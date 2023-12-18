@@ -93,7 +93,9 @@ export class UsersComponent implements OnInit {
       if (result) {
         this._userService.deleteUser(id).subscribe({
           next: () => {
-            alert('User successfully deleted');
+            this.snackBar.open('successfully user deleted','OK',{
+              duration:3000
+            })
             this.getUserData();
           },
         });

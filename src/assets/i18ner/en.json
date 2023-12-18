@@ -22,6 +22,31 @@
                "delete":"delete"
           }
       },
+      "USER_CARD":{
+          "TITILE":"User details",
+         "NAME":"Name",
+         "LASTNAME":"LastName",
+         "DOB":"DOB",
+         "EMAIL":"Email",
+         "GENDER":"Gender",
+         "EDUCATION":"Education",
+         "COMPANY":"Company",
+         "PHONE_NUMBER":"Phone number"
+      },
+      "USER_FORM":{
+         "TITILE":"User form",
+         "NAME":"Name",
+         "LASTNAME":"LastName",
+         "DOB":"DOB",
+         "EMAIL":"Email",
+         "GENDER":"Gender",
+         "EDUCATION":"Education",
+         "COMPANY":"Company",
+         "PHONE_NUMBER":"Phone number",
+         "BUTTON":{
+           "ADD_BUTTON":"Add number"
+         }
+      },
       "ITEMS":{
           "404ERROR":"Something went wrong",
           "SKU_REQUIRED":"Sku is required",
@@ -35,22 +60,64 @@
           "INVALID_PRICE":"Inavalid Price",
           "PRICE_VALIDATION":"Min price start with 100 rupees",
           "COLUMNS_LANGUAGE":{
-               "Sku":"Sku",
-               "Name":"Name",
-               "SellingPrice":"SellingPrice",
-               "action":"action"
+               "SKU":"Sku",
+               "NAME":"Name",
+               "SELLINGPRICE":"SellingPrice",
+               "ACTION":"action"
           }
       },
-      "CHANGEPASSWORD":{
-          "ERROR":"Bad Request"
+      "ITEMS_CARD":{
+          "TITLE":"Item Details",
+           "SKU":"Sku",
+           "NAME":"Name",
+           "DISPLAY_NAME":"Display name",
+           "SELLING_PRICE":"Selling price",
+           "BASEPRICE":"Base price",
+           "DESCRIPTION":"Description"
       },
-      "LOGIN":{
+      "ITEMS_FORM":{
+          "TITLE":"Add items details",
+          "SKU":"Sku",
+          "NAME":"Name",
+          "DISPLAY_NAME":"Display name",
+          "SELLING_PRICE":"Selling price",
+          "BASEPRICE":"Base price",
+          "DESCRIPTION":"Description"
+
+      },
+      "CHANGEPASSWORD":{
+          "ERROR":"Bad Request",
+          "CURRENT_PASSWORD_REQUIRED":"Current Password required",
+          "PASS_DOES_MATCH":"Password should match with old password",
+          "NEW_PASS_REQ":"New password is required",
+          "PASS_VALIDATION":"Password must have alphanumaric and special charcters",
+          "CONFIRM_PASS_REQ":"Confirm password required",
+          "CONFIRM_MATCH_WITH_NEWPASS":"Password should match with new Password",
+          "COLUMNS":{
+              "CURRENT_PASSWORD":"Current Password",
+              "NEW_PASS":"New Password ",
+              "CONFIRM_PASS":"Confirm password"
+              
+          }
+      },
+      "LOGIN_VALIDATION":{
            "404Error":"Login Data Not Found",
            "USERNAME_REQUIRED":"User name is required",
            "PASSWORD_REQUIRED":"Password required",
            "PASSWORD_VALIDATION":"Password must be alphaNumaric and special characters and its must be 8 characters",
            "WHITE_SPACE_VALIDATION":"Don't start with white space"
-      }
-
-               
+      },
+      "LOGIN_LABELS":{
+          "TITILE":"login",
+          "USERNAME":"UserName",
+          "PASSWORD":"Password"
+      },
+      "TOOLBAR_BUTTONS":{
+          "CHANGE_PASSWORD":"Change password",
+          "LOGOUT":"Logout"
+      },
+      "SIDENAV_BUTTONS":{
+          "FOOD_ITEMS":"Food items",
+          "USERS":"Users"
+      }            
 }

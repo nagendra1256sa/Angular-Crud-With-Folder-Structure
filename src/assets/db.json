@@ -3,7 +3,7 @@
     {
       "Sku": "1",
       "Name": "Chicken",
-      "DisplayName": "Lolli Pop",
+      "DisplayName": "Lolli Popt",
       "SellingPrice": "130",
       "BasePrice": 100,
       "Description": "Quality Good",
@@ -11,10 +11,10 @@
     },
     {
       "Sku": "2",
-      "Name": "Mutton ",
+      "Name": "Mutton",
       "DisplayName": "Fry",
-      "SellingPrice": "200",
-      "BasePrice": 170,
+      "SellingPrice": 280,
+      "BasePrice": 250,
       "Description": "",
       "id": 2
     }
@@ -34,16 +34,15 @@
       "id": 1
     },
     {
-      "Name": "Johny ",
-      "LastName": "Dep",
-      "Email": "jhonnyD@gmail.com",
-      "DOB": "2023-10-31T18:30:00.000Z",
+      "Name": "Roy",
+      "LastName": "Singh",
+      "Email": "singh@gmail.com",
+      "DOB": "2023-12-07T18:30:00.000Z",
       "Gender": "Male",
-      "Education": "Intermidate",
-      "Company": "LogiSoft",
+      "Education": "Diploma",
+      "Company": "Wipro",
       "PhoneNumber": [
-        6457655656,
-        6457655656
+        "9774764655"
       ],
       "id": 2
     }

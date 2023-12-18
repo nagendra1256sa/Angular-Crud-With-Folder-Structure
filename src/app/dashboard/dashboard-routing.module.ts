@@ -7,7 +7,7 @@ import { CardComponent } from '../Items/Components/card/card.component';
 import { UsersComponent } from '../user/components/users/users.component';
 import { UserCardComponent } from '../user/components/user-card/user-card.component';
 import { UserFromComponent } from '../user/components/user-from/user-from.component';
-import { authGuardGuard } from '../gaurds/auth-guard.guard';
+import { authGuardGuard } from '../Global/gaurds/auth-guard.guard';
 import { AddFoemOpen } from '../user/components/add&edit/userAdd';
 import { EditOpenComponent } from '../user/components/add&edit/userEdit';
 import { NotFoundComponent } from './Components/not-found/not-found.component';

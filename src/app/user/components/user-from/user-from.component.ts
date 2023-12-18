@@ -17,6 +17,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { DialogCloseConfirmationComponent } from '../dialog-close-confirmation/dialog-close-confirmation.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-from',
@@ -36,7 +37,8 @@ export class UserFromComponent implements OnInit {
     private _userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data: UserEditDetailsType,
     private matDialogRef: MatDialogRef<UserFromComponent>,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private snackBar:MatSnackBar
   ) {
     this.userForm = this._fb.group({
       Name: new FormControl('', [
@@ -119,17 +121,27 @@ export class UserFromComponent implements OnInit {
           .subscribe({
             next: (val) => {
               this.matDialogRef.close();
+              this.snackBar.open('User Updated successfully','OK',{
+                horizontalPosition:'center',
+                verticalPosition:"top",
+                duration:3000
+              })
             },
             error: (err) => {
-              alert('Not Found');
+              console.log(err);
+              
             },
           });
       }
     } else {
       if (this.userForm.valid) {
         this._userService.addUsers(this.userForm.value).subscribe({
-          next: (val) => {
-            alert('data added successfully');
+          next: () => {
+            this.snackBar.open('User added successfully','OK',{
+              horizontalPosition:'center',
+              verticalPosition:"top",
+              duration:3000
+            })
             this.matDialogRef.close();
           },
         });

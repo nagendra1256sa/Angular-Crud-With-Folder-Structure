@@ -11,7 +11,7 @@ import { ChangePasswordModule } from './change-password/change-password.module';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './Global/Components/not-found/not-found.component';
 
 @NgModule({
   declarations: [

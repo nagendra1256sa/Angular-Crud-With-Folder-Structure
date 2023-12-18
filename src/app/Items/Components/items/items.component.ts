@@ -76,7 +76,11 @@ export class ItemsComponent implements OnInit {
       if (result) {
         this._ItemService.deleteItem(id).subscribe({
           next: () => {
-            alert('Emp details is deleted');
+            this.snackBar.open('Item successfully deleted','OK',{
+              horizontalPosition:'center',
+              verticalPosition:"top",
+              duration:3000
+            })
             this.getItemList();
           },
           error: (err) => {

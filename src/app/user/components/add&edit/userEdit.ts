@@ -5,6 +5,7 @@ import { UserFromComponent } from '../user-from/user-from.component';
 import { UserService } from '../../dataProviders/service.service';
 import { UsersComponent } from '../users/users.component';
 import { addUsers } from '../../models/adpters';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-open',
@@ -16,7 +17,8 @@ export class EditOpenComponent {
     private route: ActivatedRoute,
     private router: Router,
     private userIdService: UserService,
-    private getUser:UsersComponent
+    private getUser:UsersComponent,
+    private snackBar:MatSnackBar
   ) {
     const UserId = this.route.snapshot.paramMap.get('id');
     const id = UserId ? parseInt(UserId) : NaN;
@@ -24,6 +26,14 @@ export class EditOpenComponent {
       next: (val) => {
         this.openDialog(val);
       },
+      error:()=>{
+        this.snackBar.open('user not found','OK',{
+          horizontalPosition:'center',
+          verticalPosition:"top",
+          duration:3000
+        })
+        this.router.navigate(['main/dashboard/users']);
+      }
     });
   }
   openDialog(data: addUsers) {

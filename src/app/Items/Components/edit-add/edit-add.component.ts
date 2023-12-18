@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfiramtionDialogCloseComponent } from '../confiramtion-dialog-close/confiramtion-dialog-close.component';
 import { ItemsComponent } from '../items/items.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface EditDetailsType {
   id: number;
@@ -37,7 +38,8 @@ export class EditAddComponent implements OnInit {
     private _ActiveRoute: ActivatedRoute,
     private _NRouter: Router,
     private matDialog: MatDialog ,// private _dialogRef:MatDialogRef<EditAddComponent>, // @Inject(MAT_DIALOG_DATA) public data:any
-    private getItems:ItemsComponent
+    private getItems:ItemsComponent,
+    private snackBar:MatSnackBar
   ) {
     this.ItemForm = this._fb.group({
       Sku: new FormControl('', [Validators.required, this.noSpaceValidator()]),
@@ -100,7 +102,11 @@ export class EditAddComponent implements OnInit {
           }
         },
         error: () => {
-          alert('Not Found');
+          this.snackBar.open('user not found','OK',{
+            horizontalPosition:'center',
+            verticalPosition:"top",
+            duration:3000
+          })
           this._NRouter.navigate(['main/dashboard/items']);
         },
       });
@@ -114,6 +120,11 @@ export class EditAddComponent implements OnInit {
           .subscribe({
             next: () => {
               // this._dialogRef.close(true);
+              this.snackBar.open('Items updated successfully','OK',{
+                horizontalPosition:'center',
+                verticalPosition:"top",
+                duration:3000
+              })
               this.getItems.getItemList();
               this._NRouter.navigate(['main/dashboard/items']);
             },
@@ -126,7 +137,11 @@ export class EditAddComponent implements OnInit {
       if (this.ItemForm.valid) {
         this._ItemService.addItem(this.ItemForm.value).subscribe({
           next: () => {
-            alert('data is added');
+            this.snackBar.open('Items added successfully','OK',{
+              horizontalPosition:'center',
+              verticalPosition:"top",
+              duration:3000
+            })
             // this._dialogRef.close(true);
             this.getItems.getItemList();
             this._NRouter.navigate(['main/dashboard/items']);

@@ -1,11 +1,11 @@
 <form [formGroup]="ItemForm" (ngSubmit)="onSubmit()" class="dialog_container">
   <div mat-dialog-title >
-    <h2>Food items form</h2>
+    <h2>{{"ITEMS_FORM.TITLE"|translate}}</h2>
   </div>
   <div mat-dialog-content class="content">
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>Sku</mat-label>
+        <mat-label>{{"ITEMS_FORM.SKU"|translate}}</mat-label>
         <input matInput placeholder="Ex. 1" formControlName="Sku" />
         <mat-error
           *ngIf="ItemForm.controls['Sku'].touched && ItemForm.controls['Sku'].errors?.['required']"
@@ -21,7 +21,7 @@
     </div>
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
+        <mat-label>{{"ITEMS_FORM.NAME"|translate}}</mat-label>
         <input matInput placeholder="Ex. chicken" formControlName="Name" />
         <mat-error
           *ngIf="ItemForm.controls['Name'].touched && ItemForm.controls['Name'].errors?.['required']"
@@ -47,7 +47,7 @@
     </div>
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>DisplayName</mat-label>
+        <mat-label>{{"ITEMS_FORM.DISPLAY_NAME"|translate}}</mat-label>
         <input
           matInput
           placeholder="Ex.  Lalipop"
@@ -77,7 +77,7 @@
     </div>
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>SellingPrice</mat-label>
+        <mat-label>{{"ITEMS_FORM.SELLING_PRICE"|translate}}</mat-label>
         <input
           matInput
           type="number"
@@ -103,7 +103,7 @@
     </div>
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>BasePrice</mat-label>
+        <mat-label>{{"ITEMS_FORM.BASEPRICE"|translate}}</mat-label>
         <input
           matInput
           placeholder="Ex. 70"
@@ -129,7 +129,7 @@
     </div>
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>Description</mat-label>
+        <mat-label>{{"ITEMS_FORM.DESCRIPTION"|translate}}</mat-label>
         <input
           matInput
           placeholder="Ex. Quality is good"
@@ -153,7 +153,7 @@
          <button mat-raised-button type="button" color="accent" (click)="addNumber()">Add PhoneNumber</button> -->
   </div>
   <div mat-dialog-actions class="actions">
-    <button mat-raised-button color="warn"  (click)="closeDialog()">cancel</button>
+    <button mat-raised-button color="warn" type="button"  (click)="closeDialog()">cancel</button>
     <button
       mat-raised-button
       color="primary"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Service } from '../../dataProviders/service.service';
 import { DetailsType } from '../../Models/adpater';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { DetailsType } from '../../Models/adpater';
 export class CardComponent implements OnInit{
   public data:DetailsType|undefined;
   // routeSubscription: any;
-    constructor(private _Activated:ActivatedRoute,private getDataById:Service,private _router:Router){}
+    constructor(private _Activated:ActivatedRoute,private getDataById:Service,private _router:Router,private snackBar:MatSnackBar){}
   ngOnInit(): void {
     // this.routeSubscription = this._Activated.paramMap.subscribe(params => {
     //   const id = params.get('id');
@@ -26,7 +27,11 @@ export class CardComponent implements OnInit{
         this.data=val
       },error:()=>
       {
-        alert('Not Found')
+        this.snackBar.open('user not found','OK',{
+          horizontalPosition:'center',
+          verticalPosition:"top",
+          duration:3000
+        })
         this._router.navigate(['main/dashboard/items'])
       }
      })

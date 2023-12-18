@@ -14,21 +14,21 @@
     
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="changePassword()">
-        <span>Change Password</span>
+        <span>{{"TOOLBAR_BUTTONS.CHANGE_PASSWORD"|translate}}</span>
       </button>
       <button mat-menu-item (click)="logout()">
         <mat-icon color="primary">logout</mat-icon>
-        <span>Log Out</span>
+        <span>{{"TOOLBAR_BUTTONS.LOGOUT"|translate}}</span>
       </button>
     </mat-menu>
   </mat-toolbar>
   <mat-drawer-container class="example-container">
     <mat-drawer mode="side" opened class="sideNav">
       <button mat-button class="menu-button" routerLinkActive="active"  routerLink="items">
-         <mat-icon class="mat-18" >fastfood</mat-icon> <a>Menu Items</a>
+         <mat-icon class="mat-18" >fastfood</mat-icon> <a>{{"SIDENAV_BUTTONS.FOOD_ITEMS"|translate}}</a>
       </button> 
       <button mat-button class="menu-button"  routerLinkActive="active" routerLink="users">
-        <mat-icon class="mat-18">group</mat-icon> <a>Users</a>
+        <mat-icon class="mat-18">group</mat-icon> <a>{{"SIDENAV_BUTTONS.USERS"|translate}}</a>
       </button>
       <!-- <mat-list role="list">
         <mat-list-item role="listitem">

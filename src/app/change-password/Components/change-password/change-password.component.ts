@@ -6,9 +6,10 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {  MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChangePasswordService } from '../../dataProviders/change-password.service';
-import { LoginDataTypeCheck } from '../../models/typeCheck';
+
 
 @Component({
   selector: 'app-change-password',
@@ -16,15 +17,15 @@ import { LoginDataTypeCheck } from '../../models/typeCheck';
   styleUrls: ['./change-password.component.scss'],
 })
 export class ChangePasswordComponent implements OnInit {
-  public loginData!: LoginDataTypeCheck;
+  public loginData!: any;
   public error!: boolean;
   //  public message:boolean = true;
   public changePasswordForm!: FormGroup;
   constructor(
     private _userService: ChangePasswordService,
-    private _matDialog: MatDialog,
-    private _matDialogRef: MatDialogRef<ChangePasswordComponent>
-  ) {}
+    private _matDialogRef: MatDialogRef<ChangePasswordComponent>,
+    private _snackBar:MatSnackBar
+  ) {} 
 
   ngOnInit(): void {
     this.changePasswordForm = new FormGroup({
@@ -80,7 +81,11 @@ export class ChangePasswordComponent implements OnInit {
           next: (val) => {
             localStorage.clear();
             localStorage.setItem('loginCredintials', JSON.stringify(val));
-
+            this._snackBar.open("Password is successfully changed","OK",{
+              horizontalPosition:'center',
+              verticalPosition:"top",
+              duration:3000
+            })
             this._matDialogRef.close();
           },
           error: (err: Error) => {
